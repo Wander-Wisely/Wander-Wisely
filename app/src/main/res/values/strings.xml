@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Wander Wisely</string>
+    <string name="category">Category</string>
 </resources>
