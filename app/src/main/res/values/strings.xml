@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Wander Wisely</string>
     <string name="category">Category</string>
+    <string name="recommendation">recommendation</string>
+    <string name="wanderwisely">WanderWisely</string>
+    <string name="your_customized_travel_itinerary_planner_for_indonesia">Your Customized Travel Itinerary Planner for Indonesia</string>
+    <string name="first_recommendation">First Recommendation</string>
+    <string name="second_recommendation">Second Recommendation</string>
 </resources>
