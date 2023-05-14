@@ -13,4 +13,5 @@
     <string name="gallery">Gallery Photo</string>
     <string name="location">Location</string>
     <string name="description">Description</string>
+    <string name="estimation">Estimasi Biaya</string>
 </resources>

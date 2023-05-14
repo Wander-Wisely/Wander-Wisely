@@ -1,4 +1,4 @@
-package id.com.wanderwisely.detail.frament
+package id.com.wanderwisely.ui.detail.frament
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import id.com.wanderwisely.R
 
 
-class DetailFragment : Fragment() {
+class DescriptionFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +20,6 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail, container, false)
+        return inflater.inflate(R.layout.fragment_description, container, false)
     }
-
 }

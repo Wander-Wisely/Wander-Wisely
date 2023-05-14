@@ -1,4 +1,4 @@
-package id.com.wanderwisely.detail
+package id.com.wanderwisely.ui.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
