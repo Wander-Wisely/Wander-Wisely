@@ -79,7 +79,7 @@
             android:id="@+id/rating_recommend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tourist_rating"
+            android:text="@string/rating_tourist"
             android:layout_marginStart="24dp"
             android:textSize="16sp"
             android:textStyle="bold"

@@ -14,4 +14,11 @@
     <string name="location">Location</string>
     <string name="description">Description</string>
     <string name="estimation">Estimasi Biaya</string>
+    <string name="favorite">Favorite</string>
+    <string name="tourist_photo">Tourist Photo</string>
+    <string name="tourist_name">Tourist Name</string>
+    <string name="location_tourist">Location Tourist</string>
+    <string name="tourist_location">Tourist Location</string>
+    <string name="price">Price</string>
+    <string name="rating_tourist">Rating Tourist</string>
 </resources>
