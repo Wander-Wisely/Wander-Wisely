@@ -6,4 +6,11 @@
     <string name="your_customized_travel_itinerary_planner_for_indonesia">Your Customized Travel Itinerary Planner for Indonesia</string>
     <string name="first_recommendation">First Recommendation</string>
     <string name="second_recommendation">Second Recommendation</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_plan">Add To Plan</string>
+    <string name="fasilitas">Fasilitation</string>
+    <string name="gallery">Gallery Photo</string>
+    <string name="location">Location</string>
+    <string name="description">Description</string>
 </resources>
