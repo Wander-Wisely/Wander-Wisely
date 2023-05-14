@@ -6,4 +6,12 @@
     <string name="your_customized_travel_itinerary_planner_for_indonesia">Your Customized Travel Itinerary Planner for Indonesia</string>
     <string name="first_recommendation">First Recommendation</string>
     <string name="second_recommendation">Second Recommendation</string>
+    <string name="tourist_location">Tourist Location</string>
+    <string name="tourist_name">Tourist Name</string>
+    <string name="tourist_rating">Tourist Rating</string>
+    <string name="rating_tourist">Rating Tourist</string>
+    <string name="location_tourist">Location Tourist</string>
+    <string name="tourist_photo">Tourist Photo</string>
+    <string name="price">Price</string>
+    <string name="favorite">Favorite</string>
 </resources>

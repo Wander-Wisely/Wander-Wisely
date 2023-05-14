@@ -33,26 +33,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_app_title" />
 
-    <ImageView
-        android:id="@+id/first_recommendation"
-        android:layout_width="190dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_recommendation"
-        android:contentDescription="@string/first_recommendation" />
-
-    <ImageView
-        android:id="@+id/second_recommendation"
-        android:layout_width="190dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_category"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.652"
-        app:layout_constraintStart_toEndOf="@+id/first_recommendation"
-        app:layout_constraintTop_toBottomOf="@+id/tv_recommendation"
-        android:contentDescription="@string/second_recommendation" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_recommendation" />
 
     <TextView
         android:id="@+id/tv_recommendation"
@@ -88,7 +77,7 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginBottom="8dp"
-        android:src="@drawable/all"
+        android:src="@drawable/All"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.025"
@@ -110,7 +99,7 @@
         android:layout_height="70dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
-        android:src="@drawable/tamannasional"
+        android:src="@drawable/TamanNasional"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintStart_toEndOf="@+id/BeachCategory" />
 
@@ -120,7 +109,7 @@
         android:layout_height="70dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
-        android:src="@drawable/alam"
+        android:src="@drawable/Alam"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintStart_toEndOf="@+id/TNCategory" />
 
@@ -130,7 +119,7 @@
         android:layout_height="70dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
-        android:src="@drawable/museum"
+        android:src="@drawable/Museum"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintStart_toEndOf="@+id/AlamCategory" />
 
@@ -144,5 +133,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
