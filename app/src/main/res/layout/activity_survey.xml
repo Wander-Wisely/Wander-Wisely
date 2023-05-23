@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.survey.SurveyActivity">
+
+    <TextView
+        android:id="@+id/tv_app_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/tell_us_more_about_you"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_slogan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/what_type_of_tourist_attractions_that_you_like"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_app_title" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/BeachCategory"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="84dp"
+        android:src="@drawable/pantai"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tv_slogan" />
+
+    <TextView
+        android:id="@+id/tv_beach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/beach"
+        android:textSize="20sp"
+        android:textColor="#101010"
+        app:layout_constraintEnd_toEndOf="@+id/BeachCategory"
+        app:layout_constraintStart_toStartOf="@+id/BeachCategory"
+        app:layout_constraintTop_toBottomOf="@+id/BeachCategory" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/NationalParkCategory"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/tamannasional"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nature" />
+
+    <TextView
+        android:id="@+id/tv_national_park"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/national_parks"
+        android:textAlignment="center"
+        android:textColor="#101010"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/NationalParkCategory"
+        app:layout_constraintStart_toStartOf="@+id/NationalParkCategory"
+        app:layout_constraintTop_toBottomOf="@+id/NationalParkCategory" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/NatureCategory"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="84dp"
+        android:src="@drawable/alam"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_slogan" />
+
+    <TextView
+        android:id="@+id/tv_nature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/nature"
+        android:textSize="20sp"
+        android:textColor="#101010"
+        app:layout_constraintEnd_toEndOf="@+id/NatureCategory"
+        app:layout_constraintStart_toStartOf="@+id/NatureCategory"
+        app:layout_constraintTop_toBottomOf="@+id/NatureCategory" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/CategoryHistory"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/museum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tv_beach" />
+
+    <TextView
+        android:id="@+id/tv_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/history"
+        android:textSize="20sp"
+        android:textColor="#101010"
+        app:layout_constraintEnd_toEndOf="@+id/CategoryHistory"
+        app:layout_constraintStart_toStartOf="@+id/CategoryHistory"
+        app:layout_constraintTop_toBottomOf="@+id/CategoryHistory" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/yellow"
+        android:layout_marginStart="8dp"
+        android:text="@string/Continue"
+        android:textColor="@color/black"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_history" />
+</androidx.constraintlayout.widget.ConstraintLayout>

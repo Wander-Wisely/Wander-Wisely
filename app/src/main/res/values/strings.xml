@@ -28,4 +28,7 @@
     <string name="history">History</string>
     <string name="home">Home</string>
     <string name="list_alt">Plan</string>
+    <string name="tell_us_more_about_you">Tell us more about you</string>
+    <string name="what_type_of_tourist_attractions_that_you_like">What type of tourist attractions that you like?</string>
+    <string name="Continue">Continue</string>
 </resources>
