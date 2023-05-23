@@ -34,11 +34,13 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_app_title" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_recommendation"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_category"
+        android:scrollbars="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_recommendation" />
@@ -63,76 +65,76 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:text="@string/category"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/allCategory"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_recommendation" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/allCategory"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/All"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.025"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_category" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/BeachCategory"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/pantai"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintStart_toEndOf="@+id/allCategory" />
+        app:layout_constraintStart_toEndOf="@+id/allCategory"
+        app:layout_constraintTop_toBottomOf="@+id/tv_category" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/NationalParkCategory"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/TamanNasional"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintStart_toEndOf="@+id/BeachCategory" />
+        app:layout_constraintStart_toEndOf="@+id/BeachCategory"
+        app:layout_constraintTop_toBottomOf="@+id/tv_category" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/NatureCategory"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/Alam"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintStart_toEndOf="@+id/NationalParkCategory" />
+        app:layout_constraintStart_toEndOf="@+id/NationalParkCategory"
+        app:layout_constraintTop_toBottomOf="@+id/tv_category" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/CategoryHistory"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:src="@drawable/Museum"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintStart_toEndOf="@id/NatureCategory" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_category" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_national_park" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -144,5 +146,62 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/all"
+        android:textColor="#101010"
+        app:layout_constraintEnd_toEndOf="@+id/allCategory"
+        app:layout_constraintStart_toStartOf="@+id/allCategory"
+        app:layout_constraintTop_toBottomOf="@+id/allCategory" />
+
+    <TextView
+        android:id="@+id/tv_beach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/beach"
+        android:textColor="#101010"
+        app:layout_constraintEnd_toEndOf="@+id/BeachCategory"
+        app:layout_constraintStart_toStartOf="@+id/BeachCategory"
+        app:layout_constraintTop_toBottomOf="@+id/BeachCategory" />
+
+    <TextView
+        android:id="@+id/tv_national_park"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/national_parks"
+        android:textAlignment="center"
+        android:textColor="#101010"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/NationalParkCategory"
+        app:layout_constraintStart_toStartOf="@+id/NationalParkCategory"
+        app:layout_constraintTop_toBottomOf="@+id/NationalParkCategory" />
+
+    <TextView
+        android:id="@+id/tv_nature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/nature"
+        android:textColor="#101010"
+        app:layout_constraintEnd_toEndOf="@+id/NatureCategory"
+        app:layout_constraintStart_toStartOf="@+id/NatureCategory"
+        app:layout_constraintTop_toBottomOf="@+id/NatureCategory" />
+
+    <TextView
+        android:id="@+id/tv_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/history"
+        android:textColor="#101010"
+        app:layout_constraintEnd_toEndOf="@+id/CategoryHistory"
+        app:layout_constraintStart_toStartOf="@+id/CategoryHistory"
+        app:layout_constraintTop_toBottomOf="@+id/CategoryHistory" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
