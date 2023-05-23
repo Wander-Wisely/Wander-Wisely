@@ -33,6 +33,7 @@
             android:id="@+id/photo"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:src="@drawable/foto1_galeri"
             android:contentDescription="@string/tourist_photo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
