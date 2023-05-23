@@ -16,76 +16,83 @@
 
     <ImageView
         android:id="@+id/first_recommendation"
-        android:layout_width="190dp"
-        android:layout_height="200dp"
+        android:layout_width="170dp"
+        android:layout_height="250dp"
+        android:src="@drawable/foto1_galeri"
         android:contentDescription="@string/first_recommendation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="160dp"
         android:layout_height="100dp"
-        android:background="@color/white"
-        android:padding="8dp"
-        android:layout_marginStart="14dp"
-        android:layout_gravity="bottom">
+        android:layout_gravity="center|bottom"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="8dp"
+        app:cardUseCompatPadding="true">
 
-        <ImageView
-            android:id="@+id/image_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/location_tourist"
-            android:src="@drawable/location_recommend"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_location_recommendation"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tourist_location"
-            android:layout_marginStart="24dp"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/image_location"
-            app:layout_constraintStart_toEndOf="@+id/image_location"
-            app:layout_constraintTop_toTopOf="@+id/image_location" />
+            android:layout_height="match_parent"
+            android:padding="8dp">
 
-        <TextView
-            android:id="@+id/tourist_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/tourist_name"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_location_recommendation" />
+            <ImageView
+                android:id="@+id/image_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/location_tourist"
+                android:src="@drawable/location_recommend"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/star_rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:contentDescription="@string/rating_tourist"
-            android:src="@drawable/baseline_star"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tourist_name" />
+            <TextView
+                android:id="@+id/tv_location_recommendation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="@string/tourist_location"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/image_location"
+                app:layout_constraintStart_toEndOf="@+id/image_location"
+                app:layout_constraintTop_toTopOf="@+id/image_location" />
 
-        <TextView
-            android:id="@+id/rating_recommend"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/rating_tourist"
-            android:layout_marginStart="24dp"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/star_rating"
-            app:layout_constraintStart_toEndOf="@+id/star_rating"
-            app:layout_constraintTop_toTopOf="@+id/star_rating" />
+            <TextView
+                android:id="@+id/tourist_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/tourist_name"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_location_recommendation" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/star_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/rating_tourist"
+                android:src="@drawable/baseline_star"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tourist_name" />
+
+            <TextView
+                android:id="@+id/rating_recommend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="@string/rating_tourist"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/star_rating"
+                app:layout_constraintStart_toEndOf="@+id/star_rating"
+                app:layout_constraintTop_toTopOf="@+id/star_rating" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </androidx.cardview.widget.CardView>

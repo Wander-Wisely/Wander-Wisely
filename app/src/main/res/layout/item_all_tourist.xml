@@ -2,13 +2,10 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_marginTop="4dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginBottom="8dp"
     app:cardElevation="4dp"
     app:cardCornerRadius="8dp"
     app:cardUseCompatPadding="true"
-    app:contentPadding="8dp"
+    app:contentPadding="4dp"
     app:cardBackgroundColor="@color/white"
     android:background="@color/white"
     android:id="@+id/card_view"
@@ -31,8 +28,8 @@
 
         <ImageView
             android:id="@+id/photo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:src="@drawable/foto1_galeri"
             android:contentDescription="@string/tourist_photo"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +44,7 @@
             android:layout_marginTop="16dp"
             android:text="@string/tourist_name"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/photo"
             app:layout_constraintTop_toTopOf="parent" />
@@ -68,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tourist_location"
-            android:textSize="14sp"
+            android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="@+id/image_location"
             app:layout_constraintStart_toEndOf="@+id/image_location"
             app:layout_constraintTop_toTopOf="@+id/image_location" />
@@ -77,13 +74,15 @@
             android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="8dp"
             android:text="@string/price"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/favorite" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
