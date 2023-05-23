@@ -21,4 +21,9 @@
     <string name="tourist_location">Tourist Location</string>
     <string name="price">Price</string>
     <string name="rating_tourist">Rating Tourist</string>
+    <string name="all">All</string>
+    <string name="beach">Beach</string>
+    <string name="national_parks">National Parks</string>
+    <string name="nature">Nature</string>
+    <string name="history">History</string>
 </resources>
