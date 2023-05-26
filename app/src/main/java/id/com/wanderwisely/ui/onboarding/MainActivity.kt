@@ -1,7 +1,8 @@
-package id.com.wanderwisely
+package id.com.wanderwisely.ui.onboarding
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import id.com.wanderwisely.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
