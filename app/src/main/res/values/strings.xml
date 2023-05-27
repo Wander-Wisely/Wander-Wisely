@@ -39,4 +39,8 @@
     <string name="hybrid_type">Hybrid</string>
     <string name="tab_text_1">Detail</string>
     <string name="tab_text_2">Description</string>
+    <string name="galeri_2">Galeri 2</string>
+    <string name="galeri_1">Galeri 1</string>
+    <string name="galeri_3">Galeri 3</string>
+    <string name="banner_detail">Banner Detail</string>
 </resources>

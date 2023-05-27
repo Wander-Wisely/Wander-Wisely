@@ -53,18 +53,21 @@
             android:layout_width="105dp"
             android:layout_height="105dp"
             android:layout_margin="15dp"
+            android:contentDescription="@string/galeri_1"
             android:src="@drawable/foto1_galeri" />
 
         <ImageView
             android:layout_width="105dp"
             android:layout_height="105dp"
             android:layout_margin="15dp"
+            android:contentDescription="@string/galeri_2"
             android:src="@drawable/foto2_galeri" />
 
         <ImageView
             android:layout_width="105dp"
             android:layout_height="105dp"
             android:layout_margin="15dp"
+            android:contentDescription="@string/galeri_3"
             android:src="@drawable/foto2_galeri" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -79,13 +82,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_marginBottom="12dp"
-        android:src="@drawable/lokasi"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
