@@ -33,4 +33,10 @@
     <string name="Continue">Continue</string>
     <string name="tv_onboarding">Make Your Plan Travel</string>
     <string name="get_started">Get Started</string>
+    <string name="normal_type">Normal</string>
+    <string name="satellite_type">Satellite</string>
+    <string name="terrain_type">Terrain</string>
+    <string name="hybrid_type">Hybrid</string>
+    <string name="tab_text_1">Detail</string>
+    <string name="tab_text_2">Description</string>
 </resources>

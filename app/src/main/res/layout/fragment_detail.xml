@@ -2,17 +2,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="20dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.detail.frament.DetailFragment">
-
     <TextView
         android:id="@+id/fasilitas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:text="@string/fasilitas"
         android:textSize="18sp"
-        android:layout_marginStart="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tv_fasilitas"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,10 +32,10 @@
         android:id="@+id/galerry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:text="@string/gallery"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginStart="15dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutCompat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -75,12 +75,13 @@
         android:text="@string/location"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintBottom_toTopOf="@+id/map"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView2"
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_marginBottom="12dp"
