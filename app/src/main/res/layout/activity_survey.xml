@@ -130,10 +130,12 @@
         app:layout_constraintGuide_begin="205dp" />
 
     <Button
+        android:id="@+id/btn_continue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/yellow"
         android:layout_marginStart="8dp"
+        android:contentDescription="@string/Continue"
         android:text="@string/Continue"
         android:textColor="@color/black"
         android:layout_marginEnd="8dp"

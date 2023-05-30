@@ -3,9 +3,9 @@ package id.com.wanderwisely.ui.onboarding
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import id.com.wanderwisely.R
+import androidx.core.app.ActivityOptionsCompat
 import id.com.wanderwisely.databinding.ActivityMainBinding
-import id.com.wanderwisely.ui.detail.DetailActivity
+import id.com.wanderwisely.ui.survey.SurveyActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -15,8 +15,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.button.setOnClickListener {
-            val intent = Intent(this, DetailActivity::class.java)
-            startActivity(intent)
+            val intent = Intent(this, SurveyActivity::class.java)
+            startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle())
         }
     }
 }
