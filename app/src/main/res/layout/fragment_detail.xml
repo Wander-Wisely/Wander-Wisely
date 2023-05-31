@@ -50,22 +50,22 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:layout_width="105dp"
-            android:layout_height="105dp"
+            android:layout_width="115dp"
+            android:layout_height="115dp"
             android:layout_margin="15dp"
             android:contentDescription="@string/galeri_1"
             android:src="@drawable/foto1_galeri" />
 
         <ImageView
-            android:layout_width="105dp"
-            android:layout_height="105dp"
-            android:layout_margin="15dp"
+            android:layout_width="115dp"
+            android:layout_height="115dp"
+            android:layout_marginTop="15dp"
             android:contentDescription="@string/galeri_2"
             android:src="@drawable/foto2_galeri" />
 
         <ImageView
-            android:layout_width="105dp"
-            android:layout_height="105dp"
+            android:layout_width="115dp"
+            android:layout_height="115dp"
             android:layout_margin="15dp"
             android:contentDescription="@string/galeri_3"
             android:src="@drawable/foto2_galeri" />
@@ -76,6 +76,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/location"
+        android:layout_marginStart="15dp"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/map"
@@ -85,6 +86,7 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_marginStart="15dp"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_marginBottom="12dp"
