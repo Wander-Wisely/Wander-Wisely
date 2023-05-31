@@ -20,7 +20,8 @@ class DetailFragment : Fragment() {
     private val binding get() = _binding
 
     private val callback = OnMapReadyCallback { googleMap ->
-        val location = LatLng(-5.110833, 127.940833)
+        val location = LatLng(-6.3538282
+            , 127.940833)
         googleMap.addMarker(
             MarkerOptions()
                 .position(location)

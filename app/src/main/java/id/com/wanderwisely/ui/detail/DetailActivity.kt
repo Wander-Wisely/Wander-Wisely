@@ -24,6 +24,7 @@ class DetailActivity : AppCompatActivity() {
         val tabs: TabLayout = findViewById(R.id.tab_layout)
         TabLayoutMediator(tabs, viewPager){ tab, position ->
             tab.text = resources.getString(TAB_TITLES[position])
+            
         }.attach()
         supportActionBar?.elevation = 0f
     }
