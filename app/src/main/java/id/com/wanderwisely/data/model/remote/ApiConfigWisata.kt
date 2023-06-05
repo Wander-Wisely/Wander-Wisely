@@ -6,7 +6,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ApiConfigWeather {
+class ApiConfigWisata {
     companion object{
         fun  getApiService(): ApiService{
             val loggingInterceptor = if (BuildConfig.DEBUG) {
@@ -19,7 +19,7 @@ class ApiConfigWeather {
                 .addInterceptor(loggingInterceptor)
                 .build()
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://api.weatherstack.com")
+                .baseUrl("https://c4e9-2a09-bac5-3a1c-101e-00-19b-138.ngrok-free.app/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

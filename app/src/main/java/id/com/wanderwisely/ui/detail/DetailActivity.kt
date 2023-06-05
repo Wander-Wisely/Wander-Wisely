@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.annotation.StringRes
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import id.com.wanderwisely.R
@@ -27,6 +28,10 @@ class DetailActivity : AppCompatActivity() {
             
         }.attach()
         supportActionBar?.elevation = 0f
+        val image = "https://drive.google.com/file/d/1lzYeoVZGaf-G-VsKLwZugkeUKxYlaG9Q/view?usp=share_link"
+        Glide.with(this)
+            .load(image)
+            .into(binding.imageView)
     }
 
     companion object{

@@ -6,6 +6,7 @@ import android.os.Bundle
 import id.com.wanderwisely.R
 import id.com.wanderwisely.databinding.ActivitySurveyBinding
 import id.com.wanderwisely.ui.detail.DetailActivity
+import id.com.wanderwisely.ui.home.HomeActivity
 
 class SurveyActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySurveyBinding
@@ -15,7 +16,7 @@ class SurveyActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnContinue.setOnClickListener {
-            val intent = Intent(this, DetailActivity::class.java)
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
     }
