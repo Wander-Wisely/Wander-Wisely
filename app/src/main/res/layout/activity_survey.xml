@@ -60,7 +60,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="32dp"
-        android:src="@drawable/tamannasional"
+        android:src="@drawable/nationalpark"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_nature" />
@@ -83,7 +83,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="84dp"
-        android:src="@drawable/alam"
+        android:src="@drawable/nature"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_slogan" />
@@ -105,7 +105,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="32dp"
-        android:src="@drawable/museum"
+        android:src="@drawable/sejarah"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/tv_beach" />

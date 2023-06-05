@@ -1,13 +1,7 @@
 package id.com.wanderwisely.ui.detail.adapter
 
-import android.app.Activity
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.appcompat.view.menu.MenuView.ItemView
-import androidx.core.app.ActivityOptionsCompat
-import androidx.core.util.Pair
-import androidx.paging.PagingData
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +10,7 @@ import id.com.wanderwisely.data.model.response.WisataResponse
 import id.com.wanderwisely.databinding.ItemAllTouristBinding
 
 class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataViewHolder>(DIFF_CALLBACK){
-    class WisataViewHolder(val binding :ItemAllTouristBinding): RecyclerView.ViewHolder(binding.root) {
+    class WisataViewHolder(private val binding :ItemAllTouristBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(wisata : WisataResponse){
             binding.itemTouristName.text = wisata.namaTempat
             binding.tvLocation.text = wisata.kota
@@ -39,21 +33,13 @@ class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataView
     }
     companion object {
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<WisataResponse>() {
-            override fun areItemsTheSame(
-                oldItem: WisataResponse,
-                newItem: WisataResponse,
-            ): Boolean {
-                return oldItem == newItem
+            override fun areItemsTheSame(oldItem: WisataResponse, newItem: WisataResponse): Boolean {
+                return oldItem.id == newItem.id
             }
 
-            override fun areContentsTheSame(
-                oldItem: WisataResponse,
-                newItem: WisataResponse,
-            ): Boolean {
+            override fun areContentsTheSame(oldItem: WisataResponse, newItem: WisataResponse): Boolean {
                 return oldItem.id == newItem.id
             }
         }
     }
-
-
 }
