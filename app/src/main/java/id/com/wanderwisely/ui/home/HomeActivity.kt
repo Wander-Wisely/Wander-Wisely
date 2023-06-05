@@ -2,23 +2,20 @@ package id.com.wanderwisely.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
-import id.com.wanderwisely.R
-import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.com.wanderwisely.databinding.ActivityHomeBinding
 import id.com.wanderwisely.ui.detail.adapter.WisataAdapter
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding : ActivityHomeBinding
-    private val homeViewModel :HomeViewModel by viewModels{
-        HomeViewModelFactory(this)
-
-    }
+    private lateinit var homeViewModel :HomeViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val homeViewModelFactory = HomeViewModelFactory(this)
+        homeViewModel = ViewModelProvider(this, homeViewModelFactory)[HomeViewModel::class.java]
         setupAction()
     }
     private fun setupAction(){
