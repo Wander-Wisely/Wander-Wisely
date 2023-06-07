@@ -1,11 +1,10 @@
 package id.com.wanderwisely.ui.survey
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import id.com.wanderwisely.R
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import id.com.wanderwisely.databinding.ActivitySurveyBinding
-import id.com.wanderwisely.ui.detail.DetailActivity
 import id.com.wanderwisely.ui.home.HomeActivity
 
 class SurveyActivity : AppCompatActivity() {
@@ -20,4 +19,7 @@ class SurveyActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    fun onCheckboxClicked(view: View) {}
+    fun onRadioButtonClicked(view: View) {}
 }

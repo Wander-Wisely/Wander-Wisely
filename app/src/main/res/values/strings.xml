@@ -43,4 +43,23 @@
     <string name="galeri_1">Galeri 1</string>
     <string name="galeri_3">Galeri 3</string>
     <string name="banner_detail">Banner Detail</string>
+    <string name="question1">Interests and Hobbies ?</string>
+    <string name="hiking">Hiking</string>
+    <string name="snorkeling">Snorkeling</string>
+    <string name="photography">Photography</string>
+    <string name="trekking">Trekking</string>
+    <string name="outbound">Outbound</string>
+    <string name="culinary">Culinary</string>
+    <string name="question2">Vacation Budget ?</string>
+    <string name="type2">Rp 50.000 - Rp 100.000</string>
+    <string name="type1"><![CDATA[< Rp 50.000]]></string>
+    <string name="type4"><![CDATA[> Rp 250.000]]></string>
+    <string name="type3">Rp 100.000 - Rp 250.000</string>
+    <string name="popular">Popular</string>
+    <string name="quiet">Quiet</string>
+    <string name="lodge">Lodge</string>
+    <string name="camp">Camp</string>
+    <string name="family">Family</string>
+    <string name="alone">Alone</string>
+    <string name="splash">Splash</string>
 </resources>

@@ -53,6 +53,27 @@ data class WisataResponse(
 	val updatedAt: String? = null
 )
 
+data class MediaItem(
+
+	@field:SerializedName("path")
+	val path: String? = null,
+
+	@field:SerializedName("createdAt")
+	val createdAt: String? = null,
+
+	@field:SerializedName("filename")
+	val filename: String? = null,
+
+	@field:SerializedName("tourism_attraction_id")
+	val tourismAttractionId: Int? = null,
+
+	@field:SerializedName("id")
+	val id: Int? = null,
+
+	@field:SerializedName("updatedAt")
+	val updatedAt: String? = null
+)
+
 data class FasilitasItem(
 
 	@field:SerializedName("id_tempat")
@@ -66,24 +87,6 @@ data class FasilitasItem(
 
 	@field:SerializedName("id")
 	val id: Int? = null,
-
-	@field:SerializedName("updatedAt")
-	val updatedAt: String? = null
-)
-
-data class MediaItem(
-
-	@field:SerializedName("id_tempat")
-	val idTempat: Int? = null,
-
-	@field:SerializedName("createdAt")
-	val createdAt: String? = null,
-
-	@field:SerializedName("id")
-	val id: Int? = null,
-
-	@field:SerializedName("url")
-	val url: String? = null,
 
 	@field:SerializedName("updatedAt")
 	val updatedAt: String? = null
