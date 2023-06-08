@@ -14,11 +14,12 @@ class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataView
         fun bind(wisata : WisataResponse){
             binding.itemTouristName.text = wisata.namaTempat
             binding.tvLocation.text = wisata.kota
+            val mediaItem = wisata.media?.firstOrNull() // Assuming you want to load the first media item
+            val imageUrl = mediaItem?.path
             Glide.with(itemView.context)
-                .load(wisata.media)
+                .load(imageUrl)
                 .into(binding.photo)
         }
-
     }
     override fun onBindViewHolder(holder: WisataViewHolder, position: Int) {
         val wisata = getItem(position)

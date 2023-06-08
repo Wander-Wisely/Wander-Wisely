@@ -27,100 +27,283 @@
         android:layout_marginEnd="8dp"
         android:text="@string/what_type_of_tourist_attractions_that_you_like"
         android:textSize="14sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_app_title" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/BeachCategory"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="84dp"
-        android:src="@drawable/pantai"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/tv_slogan" />
-
     <TextView
-        android:id="@+id/tv_beach"
-        android:layout_width="wrap_content"
+        android:id="@+id/question1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/beach"
-        android:textSize="20sp"
-        android:textColor="#101010"
-        app:layout_constraintEnd_toEndOf="@+id/BeachCategory"
-        app:layout_constraintStart_toStartOf="@+id/BeachCategory"
-        app:layout_constraintTop_toBottomOf="@+id/BeachCategory" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/NationalParkCategory"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/nationalpark"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nature" />
-
-    <TextView
-        android:id="@+id/tv_national_park"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/national_parks"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/question1"
         android:textAlignment="center"
-        android:textColor="#101010"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/NationalParkCategory"
-        app:layout_constraintStart_toStartOf="@+id/NationalParkCategory"
-        app:layout_constraintTop_toBottomOf="@+id/NationalParkCategory" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/NatureCategory"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="84dp"
-        android:src="@drawable/nature"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_slogan" />
 
-    <TextView
-        android:id="@+id/tv_nature"
+    <CheckBox
+        android:id="@+id/Hiking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
-        android:text="@string/nature"
-        android:textSize="20sp"
-        android:textColor="#101010"
-        app:layout_constraintEnd_toEndOf="@+id/NatureCategory"
-        app:layout_constraintStart_toStartOf="@+id/NatureCategory"
-        app:layout_constraintTop_toBottomOf="@+id/NatureCategory" />
+        android:onClick="onCheckboxClicked"
+        android:text="@string/hiking"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question1" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/CategoryHistory"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/sejarah"
-        app:layout_constraintEnd_toEndOf="parent"
+    <CheckBox
+        android:id="@+id/Snorkeling"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:onClick="onCheckboxClicked"
+        android:text="@string/snorkeling"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/tv_beach" />
+        app:layout_constraintTop_toBottomOf="@+id/question1" />
 
-    <TextView
-        android:id="@+id/tv_history"
+    <CheckBox
+        android:id="@+id/Photography"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="onCheckboxClicked"
+        android:text="@string/photography"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Hiking" />
+
+    <CheckBox
+        android:id="@+id/Trekking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="onCheckboxClicked"
+        android:text="@string/trekking"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/Snorkeling" />
+
+    <CheckBox
+        android:id="@+id/Outbound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="onCheckboxClicked"
+        android:text="@string/outbound"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Photography" />
+
+    <CheckBox
+        android:id="@+id/Culinary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="onCheckboxClicked"
+        android:text="@string/culinary"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/Trekking" />
+
+    <TextView
+        android:id="@+id/question2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/question2"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Outbound" />
+
+    <RadioButton
+        android:id="@+id/type1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
+        android:onClick="onRadioButtonClicked"
+        android:text="@string/type1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question2" />
+
+    <RadioButton
+        android:id="@+id/type2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:onClick="onRadioButtonClicked"
+        android:text="@string/type2"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/question2" />
+
+    <RadioButton
+        android:id="@+id/type3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/type3"
+        android:onClick="onRadioButtonClicked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/type1"/>
+
+    <RadioButton
+        android:id="@+id/type4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/type4"
+        android:onClick="onRadioButtonClicked"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/type2"/>
+
+    <TextView
+        android:id="@+id/question3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/question1"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/type4" />
+
+    <CheckBox
+        android:id="@+id/Popular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:onClick="onCheckboxClicked"
+        android:text="@string/popular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question3" />
+
+    <CheckBox
+        android:id="@+id/Quiet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:onClick="onCheckboxClicked"
+        android:text="@string/quiet"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/question3" />
+
+    <CheckBox
+        android:id="@+id/Lodge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="onCheckboxClicked"
+        android:text="@string/lodge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Popular" />
+
+    <CheckBox
+        android:id="@+id/Camp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="onCheckboxClicked"
+        android:text="@string/camp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/Quiet" />
+
+    <CheckBox
+        android:id="@+id/Family"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="onCheckboxClicked"
+        android:text="@string/family"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Lodge" />
+
+    <CheckBox
+        android:id="@+id/Alone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="onCheckboxClicked"
+        android:text="@string/alone"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/Camp" />
+
+    <CheckBox
+        android:id="@+id/National_Park"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="onCheckboxClicked"
+        android:text="@string/national_parks"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Family" />
+
+    <CheckBox
+        android:id="@+id/Beach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="onCheckboxClicked"
+        android:text="@string/beach"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/Alone" />
+
+    <CheckBox
+        android:id="@+id/Nature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="onCheckboxClicked"
+        android:text="@string/nature"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/National_Park" />
+
+    <CheckBox
+        android:id="@+id/History"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:onClick="onCheckboxClicked"
         android:text="@string/history"
-        android:textSize="20sp"
-        android:textColor="#101010"
-        app:layout_constraintEnd_toEndOf="@+id/CategoryHistory"
-        app:layout_constraintStart_toStartOf="@+id/CategoryHistory"
-        app:layout_constraintTop_toBottomOf="@+id/CategoryHistory" />
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/Beach" />
+
+    <Button
+        android:id="@+id/btn_continue"
+        style="@style/button"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/Continue"
+        android:text="@string/Continue"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/History" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -128,19 +311,4 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="205dp" />
-
-    <Button
-        android:id="@+id/btn_continue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/button"
-        android:layout_marginStart="8dp"
-        android:contentDescription="@string/Continue"
-        android:text="@string/Continue"
-        android:textColor="@color/black"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_history" />
 </androidx.constraintlayout.widget.ConstraintLayout>
