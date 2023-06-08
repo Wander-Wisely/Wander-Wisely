@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/question1"
         android:textAlignment="center"
@@ -52,7 +52,7 @@
         android:id="@+id/Hiking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="4dp"
         android:onClick="onCheckboxClicked"
         android:text="@string/hiking"
@@ -63,7 +63,7 @@
         android:id="@+id/Snorkeling"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:onClick="onCheckboxClicked"
         android:text="@string/snorkeling"
@@ -74,40 +74,36 @@
         android:id="@+id/Photography"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:onClick="onCheckboxClicked"
         android:text="@string/photography"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/Hiking"
         app:layout_constraintTop_toBottomOf="@+id/Hiking" />
 
     <CheckBox
         android:id="@+id/Trekking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:onClick="onCheckboxClicked"
         android:text="@string/trekking"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/Snorkeling"
         app:layout_constraintTop_toBottomOf="@+id/Snorkeling" />
 
     <CheckBox
         android:id="@+id/Outbound"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:onClick="onCheckboxClicked"
         android:text="@string/outbound"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/Photography"
         app:layout_constraintTop_toBottomOf="@+id/Photography" />
 
     <CheckBox
         android:id="@+id/Culinary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:onClick="onCheckboxClicked"
         android:text="@string/culinary"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/Trekking"
         app:layout_constraintTop_toBottomOf="@+id/Trekking" />
 
     <TextView
@@ -130,7 +126,7 @@
         android:id="@+id/type1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="4dp"
         android:onClick="onRadioButtonClicked"
         android:text="@string/type1"
@@ -143,7 +139,7 @@
         android:id="@+id/type2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:onClick="onRadioButtonClicked"
         android:text="@string/type2"
@@ -154,23 +150,22 @@
         android:id="@+id/type3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:text="@string/type3"
         android:onClick="onRadioButtonClicked"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/type1"/>
+        app:layout_constraintStart_toStartOf="@+id/type2"
+        app:layout_constraintTop_toBottomOf="@+id/type2" />
 
     <RadioButton
         android:id="@+id/type4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="32dp"
         android:text="@string/type4"
         android:onClick="onRadioButtonClicked"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/type2"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/type1"/>
 
     <TextView
         android:id="@+id/question3"
@@ -192,7 +187,7 @@
         android:id="@+id/Popular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="4dp"
         android:onClick="onCheckboxClicked"
         android:text="@string/popular"
@@ -203,7 +198,7 @@
         android:id="@+id/Quiet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:onClick="onCheckboxClicked"
         android:text="@string/quiet"
@@ -214,80 +209,72 @@
         android:id="@+id/Lodge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:onClick="onCheckboxClicked"
         android:text="@string/lodge"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/Popular"
         app:layout_constraintTop_toBottomOf="@+id/Popular" />
 
     <CheckBox
         android:id="@+id/Camp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:onClick="onCheckboxClicked"
         android:text="@string/camp"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/Quiet"
         app:layout_constraintTop_toBottomOf="@+id/Quiet" />
 
     <CheckBox
         android:id="@+id/Family"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:onClick="onCheckboxClicked"
         android:text="@string/family"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/Lodge"
         app:layout_constraintTop_toBottomOf="@+id/Lodge" />
 
     <CheckBox
         android:id="@+id/Alone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:onClick="onCheckboxClicked"
         android:text="@string/alone"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/Camp"
         app:layout_constraintTop_toBottomOf="@+id/Camp" />
 
     <CheckBox
         android:id="@+id/National_Park"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:onClick="onCheckboxClicked"
         android:text="@string/national_parks"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/Family"
         app:layout_constraintTop_toBottomOf="@+id/Family" />
 
     <CheckBox
         android:id="@+id/Beach"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:onClick="onCheckboxClicked"
         android:text="@string/beach"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/Alone"
         app:layout_constraintTop_toBottomOf="@+id/Alone" />
 
     <CheckBox
         android:id="@+id/Nature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:onClick="onCheckboxClicked"
         android:text="@string/nature"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/National_Park"
         app:layout_constraintTop_toBottomOf="@+id/National_Park" />
 
     <CheckBox
         android:id="@+id/History"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:onClick="onCheckboxClicked"
         android:text="@string/history"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/Beach"
         app:layout_constraintTop_toBottomOf="@+id/Beach" />
 
     <Button
@@ -295,6 +282,7 @@
         style="@style/button"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:contentDescription="@string/Continue"
