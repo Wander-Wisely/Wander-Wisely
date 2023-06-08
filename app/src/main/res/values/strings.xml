@@ -62,4 +62,6 @@
     <string name="family">Family</string>
     <string name="alone">Alone</string>
     <string name="splash">Splash</string>
+    <string name="search">Search</string>
+    <string name="setting">Setting</string>
 </resources>
