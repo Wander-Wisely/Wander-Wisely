@@ -9,11 +9,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_plan">Add To Plan</string>
-    <string name="fasilitas">Fasilitation</string>
+    <string name="fasilitas">Facilities</string>
     <string name="gallery">Gallery Photo</string>
     <string name="location">Location</string>
     <string name="description">Description</string>
-    <string name="estimation">Estimasi Biaya</string>
+    <string name="estimation">Cost Estimation</string>
     <string name="favorite">Favorite</string>
     <string name="tourist_photo">Tourist Photo</string>
     <string name="tourist_name">Tourist Name</string>
