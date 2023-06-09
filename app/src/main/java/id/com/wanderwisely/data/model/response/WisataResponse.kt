@@ -4,47 +4,50 @@ import com.google.gson.annotations.SerializedName
 
 data class WisataResponse(
 
-	@field:SerializedName("provinsi")
-	val provinsi: String? = null,
+	@field:SerializedName("city")
+	val city: String? = null,
 
-	@field:SerializedName("sampai_biaya")
-	val sampaiBiaya: String? = null,
-
-	@field:SerializedName("jenis_wisata")
-	val jenisWisata: String? = null,
-
-	@field:SerializedName("kota")
-	val kota: String? = null,
+	@field:SerializedName("TourismType")
+	val tourismType: TourismType? = null,
 
 	@field:SerializedName("latitude")
 	val latitude: String? = null,
 
+	@field:SerializedName("TourismActivities")
+	val tourismActivities: List<TourismActivitiesItem?>? = null,
+
 	@field:SerializedName("rating")
 	val rating: String? = null,
 
-	@field:SerializedName("Media")
-	val media: List<MediaItem?>? = null,
+	@field:SerializedName("descriptions")
+	val descriptions: String? = null,
 
-	@field:SerializedName("nama_tempat")
-	val namaTempat: String? = null,
+	@field:SerializedName("TourismFacilities")
+	val tourismFacilities: List<TourismFacilitiesItem?>? = null,
+
+	@field:SerializedName("cost_to")
+	val costTo: Int? = null,
 
 	@field:SerializedName("createdAt")
 	val createdAt: String? = null,
 
-	@field:SerializedName("dari_biaya")
-	val dariBiaya: String? = null,
+	@field:SerializedName("province")
+	val province: String? = null,
 
-	@field:SerializedName("Aktivitas")
-	val aktivitas: List<AktivitasItem?>? = null,
+	@field:SerializedName("tourism_type_id")
+	val tourismTypeId: Int? = null,
+
+	@field:SerializedName("name")
+	val name: String? = null,
 
 	@field:SerializedName("id")
 	val id: Int? = null,
 
-	@field:SerializedName("deskripsi")
-	val deskripsi: String? = null,
+	@field:SerializedName("TourismFiles")
+	val tourismFiles: List<TourismFilesItem?>? = null,
 
-	@field:SerializedName("Fasilitas")
-	val fasilitas: List<FasilitasItem?>? = null,
+	@field:SerializedName("cost_from")
+	val costFrom: Int? = null,
 
 	@field:SerializedName("longitude")
 	val longitude: String? = null,
@@ -53,7 +56,7 @@ data class WisataResponse(
 	val updatedAt: String? = null
 )
 
-data class MediaItem(
+data class TourismFilesItem(
 
 	@field:SerializedName("path")
 	val path: String? = null,
@@ -74,16 +77,16 @@ data class MediaItem(
 	val updatedAt: String? = null
 )
 
-data class FasilitasItem(
-
-	@field:SerializedName("id_tempat")
-	val idTempat: Int? = null,
+data class TourismFacilitiesItem(
 
 	@field:SerializedName("createdAt")
 	val createdAt: String? = null,
 
-	@field:SerializedName("nama")
-	val nama: String? = null,
+	@field:SerializedName("tourism_attraction_id")
+	val tourismAttractionId: Int? = null,
+
+	@field:SerializedName("name")
+	val name: String? = null,
 
 	@field:SerializedName("id")
 	val id: Int? = null,
@@ -92,16 +95,31 @@ data class FasilitasItem(
 	val updatedAt: String? = null
 )
 
-data class AktivitasItem(
-
-	@field:SerializedName("id_tempat")
-	val idTempat: Int? = null,
+data class TourismType(
 
 	@field:SerializedName("createdAt")
 	val createdAt: String? = null,
 
-	@field:SerializedName("nama")
-	val nama: String? = null,
+	@field:SerializedName("name")
+	val name: String? = null,
+
+	@field:SerializedName("id")
+	val id: Int? = null,
+
+	@field:SerializedName("updatedAt")
+	val updatedAt: String? = null
+)
+
+data class TourismActivitiesItem(
+
+	@field:SerializedName("createdAt")
+	val createdAt: String? = null,
+
+	@field:SerializedName("tourism_attraction_id")
+	val tourismAttractionId: Int? = null,
+
+	@field:SerializedName("name")
+	val name: String? = null,
 
 	@field:SerializedName("id")
 	val id: Int? = null,
