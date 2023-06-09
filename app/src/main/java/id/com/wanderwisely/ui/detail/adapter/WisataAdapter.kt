@@ -7,7 +7,6 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import id.com.wanderwisely.R
 import id.com.wanderwisely.data.model.response.WisataResponse
 import id.com.wanderwisely.databinding.ItemAllTouristBinding
 import id.com.wanderwisely.ui.detail.DetailActivity
@@ -19,7 +18,7 @@ class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataView
             binding.tvLocation.text = wisata.city
             val fromPrice = wisata.costFrom
             val costTo = wisata.costTo
-            val priceText = itemView.context.getString(R.string.price_format, fromPrice, costTo)
+            val priceText = ((fromPrice + costTo) /2).toString()
             binding.tvPrice.text = priceText
             val mediaItem = wisata.tourismFiles?.firstOrNull() // Assuming you want to load the first media item
             val imageUrl = mediaItem?.path

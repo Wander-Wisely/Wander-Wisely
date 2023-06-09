@@ -26,7 +26,7 @@ data class WisataResponse(
 	val tourismFacilities: List<TourismFacilitiesItem?>? = null,
 
 	@field:SerializedName("cost_to")
-	val costTo: Int? = null,
+	val costTo: Int = 0,
 
 	@field:SerializedName("createdAt")
 	val createdAt: String? = null,
@@ -47,7 +47,7 @@ data class WisataResponse(
 	val tourismFiles: List<TourismFilesItem?>? = null,
 
 	@field:SerializedName("cost_from")
-	val costFrom: Int? = null,
+	val costFrom: Int = 0,
 
 	@field:SerializedName("longitude")
 	val longitude: String? = null,
