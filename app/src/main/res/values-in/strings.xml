@@ -62,4 +62,7 @@
     <string name="family">Keluarga</string>
     <string name="alone">Sendiri</string>
     <string name="splash">Splash</string>
+    <string name="search">Cari</string>
+    <string name="setting">Pengaturan</string>
+    <string name="price_format">%d - %d</string>
 </resources>

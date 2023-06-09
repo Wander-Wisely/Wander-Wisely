@@ -19,7 +19,7 @@ class ApiConfigWisata {
                 .addInterceptor(loggingInterceptor)
                 .build()
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://b6f2-180-248-47-144.ngrok-free.app/api/v1/")
+                .baseUrl("https://34.101.159.21:9000/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

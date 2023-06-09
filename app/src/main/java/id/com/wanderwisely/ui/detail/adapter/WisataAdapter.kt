@@ -1,24 +1,37 @@
 package id.com.wanderwisely.ui.detail.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import id.com.wanderwisely.R
 import id.com.wanderwisely.data.model.response.WisataResponse
 import id.com.wanderwisely.databinding.ItemAllTouristBinding
+import id.com.wanderwisely.ui.detail.DetailActivity
 
 class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataViewHolder>(DIFF_CALLBACK){
     class WisataViewHolder(private val binding :ItemAllTouristBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(wisata : WisataResponse){
-            binding.itemTouristName.text = wisata.namaTempat
-            binding.tvLocation.text = wisata.kota
-            val mediaItem = wisata.media?.firstOrNull() // Assuming you want to load the first media item
+            binding.itemTouristName.text = wisata.name
+            binding.tvLocation.text = wisata.city
+            val fromPrice = wisata.costFrom
+            val costTo = wisata.costTo
+            val priceText = itemView.context.getString(R.string.price_format, fromPrice, costTo)
+            binding.tvPrice.text = priceText
+            val mediaItem = wisata.tourismFiles?.firstOrNull() // Assuming you want to load the first media item
             val imageUrl = mediaItem?.path
             Glide.with(itemView.context)
                 .load(imageUrl)
                 .into(binding.photo)
+
+            itemView.setOnClickListener {
+                val intentDetail = Intent(itemView.context, DetailActivity::class.java)
+                intentDetail.putExtra("Id", wisata.id)
+                itemView.context.startActivity(intentDetail)
+            }
         }
     }
     override fun onBindViewHolder(holder: WisataViewHolder, position: Int) {
