@@ -1,9 +1,7 @@
-package id.com.wanderwisely.ui.detail.adapter
+package id.com.wanderwisely.ui.home.adapter
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import id.com.wanderwisely.ui.detail.frament.DescriptionFragment
 import id.com.wanderwisely.ui.detail.frament.DetailFragment

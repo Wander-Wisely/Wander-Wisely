@@ -6,7 +6,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ApiConfigWisata {
+class ApiConfigRekomendasi {
     companion object{
         fun  getApiService(): ApiService{
             val loggingInterceptor = if (BuildConfig.DEBUG) {
@@ -19,7 +19,7 @@ class ApiConfigWisata {
                 .addInterceptor(loggingInterceptor)
                 .build()
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://560c-180-248-47-144.ngrok-free.app/api/v1/")
+                .baseUrl("https://9f62-180-248-47-144.ngrok-free.app/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

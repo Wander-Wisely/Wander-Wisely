@@ -3,22 +3,28 @@ package id.com.wanderwisely.ui.home
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.com.wanderwisely.R
+import id.com.wanderwisely.data.model.response.DataItem
 import id.com.wanderwisely.databinding.ActivityHomeBinding
-import id.com.wanderwisely.ui.detail.adapter.WisataAdapter
+import id.com.wanderwisely.ui.home.adapter.WisataAdapter
 import id.com.wanderwisely.ui.favorite.FavoriteActivity
 import id.com.wanderwisely.ui.plan.PlanActivity
+import id.com.wanderwisely.ui.survey.SurveyViewModel
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding : ActivityHomeBinding
     private lateinit var homeViewModel :HomeViewModel
+    private lateinit var surveyViewModel: SurveyViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val homeViewModelFactory = HomeViewModelFactory(this)
+        surveyViewModel = ViewModelProvider(this)[SurveyViewModel::class.java]
+
+        val homeViewModelFactory = HomeViewModelFactory(surveyViewModel)
         homeViewModel = ViewModelProvider(this, homeViewModelFactory)[HomeViewModel::class.java]
 
         binding.bottomNavigationView.selectedItemId = R.id.menu_home
@@ -43,6 +49,14 @@ class HomeActivity : AppCompatActivity() {
             }
         }
         setupAction()
+        homeViewModel.isLoading.observe(this){ isLoading ->
+            binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        }
+        homeViewModel.recommendation.observe(this) { recommendation ->
+            if (recommendation != null) {
+                handleRecommendation(recommendation)
+            }
+        }
     }
     private fun setupAction(){
         val adapter = WisataAdapter()
@@ -51,5 +65,8 @@ class HomeActivity : AppCompatActivity() {
         homeViewModel.wisata.observe(this){
             adapter.submitData(lifecycle,it)
         }
+    }
+    private fun handleRecommendation(recommendation: List<DataItem?>?) {
+
     }
 }

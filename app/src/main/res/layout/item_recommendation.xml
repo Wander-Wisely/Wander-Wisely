@@ -15,7 +15,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/first_recommendation"
+        android:id="@+id/photo_recommendation"
         android:layout_width="170dp"
         android:layout_height="250dp"
         android:src="@drawable/foto1_galeri"
