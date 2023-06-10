@@ -44,9 +44,9 @@
     <string name="galeri_3">Galeri 3</string>
     <string name="banner_detail">Banner Detail</string>
     <string name="question1">Minat dan Hobi?</string>
-    <string name="hiking">Hiking</string>
-    <string name="snorkeling">Snorkeling</string>
-    <string name="photography">Fotografi</string>
+    <string name="hiking">Mendaki</string>
+    <string name="snorkeling">Menyelam</string>
+    <string name="photography">Berfoto</string>
     <string name="trekking">Trekking</string>
     <string name="outbound">Outbound</string>
     <string name="culinary">Kuliner</string>
@@ -58,10 +58,11 @@
     <string name="popular">Populer</string>
     <string name="quiet">Tenang</string>
     <string name="lodge">Lodge</string>
-    <string name="camp">Camping</string>
+    <string name="camp">Berkemah</string>
     <string name="family">Keluarga</string>
     <string name="alone">Sendiri</string>
     <string name="splash">Splash</string>
     <string name="search">Cari</string>
     <string name="setting">Pengaturan</string>
+    <string name="question3">Liburan seperti apa yang anda inginkan?</string>
 </resources>

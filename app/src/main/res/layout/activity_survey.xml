@@ -174,7 +174,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/question1"
+        android:text="@string/question3"
         android:textAlignment="center"
         android:textSize="14sp"
         android:textStyle="bold"

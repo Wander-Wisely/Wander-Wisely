@@ -1,4 +1,4 @@
-package id.com.wanderwisely.ui.detail.adapter
+package id.com.wanderwisely.ui.home.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -11,14 +11,21 @@ import id.com.wanderwisely.data.model.response.WisataResponse
 import id.com.wanderwisely.databinding.ItemAllTouristBinding
 import id.com.wanderwisely.ui.detail.DetailActivity
 
-class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataViewHolder>(DIFF_CALLBACK){
+class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataViewHolder>(
+    DIFF_CALLBACK
+){
     class WisataViewHolder(private val binding :ItemAllTouristBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(wisata : WisataResponse){
             binding.itemTouristName.text = wisata.name
             binding.tvLocation.text = wisata.city
             val fromPrice = wisata.costFrom
             val costTo = wisata.costTo
-            val priceText = ((fromPrice + costTo) /2).toString()
+            val totalPrice = fromPrice + costTo
+            val priceText = if (totalPrice == 0) {
+                "Free"
+            } else {
+                (totalPrice / 2).toString()
+            }
             binding.tvPrice.text = priceText
             val mediaItem = wisata.tourismFiles?.firstOrNull() // Assuming you want to load the first media item
             val imageUrl = mediaItem?.path

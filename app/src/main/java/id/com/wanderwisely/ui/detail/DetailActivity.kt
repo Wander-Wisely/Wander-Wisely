@@ -9,7 +9,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import id.com.wanderwisely.R
 import id.com.wanderwisely.databinding.ActivityDetailBinding
-import id.com.wanderwisely.ui.detail.adapter.SectionsPagerAdapter
+import id.com.wanderwisely.ui.home.adapter.SectionsPagerAdapter
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding : ActivityDetailBinding
