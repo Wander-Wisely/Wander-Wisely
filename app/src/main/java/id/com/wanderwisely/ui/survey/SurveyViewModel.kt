@@ -33,7 +33,7 @@ class SurveyViewModel(
 
 class SurveyViewModelFactory(private val application: Application) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(SurveyViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
             return SurveyViewModel(application, Injection.provideRepository()) as T
         }

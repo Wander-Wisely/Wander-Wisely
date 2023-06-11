@@ -22,7 +22,8 @@ class SurveyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySurveyBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        surveyViewModel = ViewModelProvider(this, SurveyViewModelFactory(this@SurveyActivity.application))[SurveyViewModel::class.java]
+        val surveyViewModelFactory = SurveyViewModelFactory(this@SurveyActivity.application)
+        surveyViewModel = ViewModelProvider(this, surveyViewModelFactory)[SurveyViewModel::class.java]
 
         binding.btnContinue.setOnClickListener {
             val hobbies = selectedHobbies.toList()
