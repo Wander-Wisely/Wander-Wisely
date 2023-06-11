@@ -47,4 +47,5 @@ class DetailFragment : Fragment() {
         mapFragment?.getMapAsync(callback)
 
     }
+
 }

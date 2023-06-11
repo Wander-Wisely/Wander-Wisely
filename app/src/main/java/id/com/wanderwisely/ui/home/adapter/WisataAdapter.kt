@@ -1,6 +1,7 @@
 package id.com.wanderwisely.ui.home.adapter
 
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -10,11 +11,13 @@ import com.bumptech.glide.Glide
 import id.com.wanderwisely.data.model.response.WisataResponse
 import id.com.wanderwisely.databinding.ItemAllTouristBinding
 import id.com.wanderwisely.ui.detail.DetailActivity
+import id.com.wanderwisely.ui.detail.frament.DescriptionFragment
 
 class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataViewHolder>(
     DIFF_CALLBACK
 ){
     class WisataViewHolder(private val binding :ItemAllTouristBinding): RecyclerView.ViewHolder(binding.root) {
+
         fun bind(wisata : WisataResponse){
             binding.itemTouristName.text = wisata.name
             binding.tvLocation.text = wisata.city
@@ -32,11 +35,24 @@ class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataView
             Glide.with(itemView.context)
                 .load(imageUrl)
                 .into(binding.photo)
-
             itemView.setOnClickListener {
+                val fromCost = wisata.costFrom
+                val toCost = wisata.costTo
+                val priceTotal = fromCost + toCost
+                val textPrice = if (priceTotal == 0) {
+                    "Free"
+                } else {
+                    "Rp. ${(priceTotal / 2)}"
+                }
+                val itemMedia = wisata.tourismFiles?.firstOrNull() // Assuming you want to load the first media item
+                val urlImage = itemMedia?.path
                 val intentDetail = Intent(itemView.context, DetailActivity::class.java)
-                intentDetail.putExtra("Id", wisata.id)
+                intentDetail.putExtra(DetailActivity.NAME_EXTRA, wisata.name)
+                intentDetail.putExtra(DetailActivity.PATH_EXTRA, urlImage)
+                intentDetail.putExtra(DetailActivity.RATING_EXTRA, wisata.rating)
+                intentDetail.putExtra(DetailActivity.COST_EXTRA, textPrice)
                 itemView.context.startActivity(intentDetail)
+
             }
         }
     }
