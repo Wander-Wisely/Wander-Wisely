@@ -2,7 +2,10 @@ package id.com.wanderwisely.ui.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
+import android.widget.TextView
 import androidx.annotation.StringRes
+import androidx.appcompat.widget.Toolbar
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
@@ -36,26 +39,34 @@ class DetailActivity : AppCompatActivity() {
         binding.btnTambahRencana.setOnClickListener {
 //            insertPlanToDatabase()
         }
+        setupView()
     }
-//    private fun insertPlanToDatabase(){
-//        val nameWisata =
-//        binding.itemTouristName.text = wisata.name
-//        binding.tvLocation.text = wisata.city
-//        val fromPrice = wisata.costFrom
-//        val costTo = wisata.costTo
-//        val totalPrice = fromPrice + costTo
-//        val priceText = if (totalPrice == 0) {
-//            "Free"
-//        } else {
-//            "Rp. ${(totalPrice / 2)}"
-//        }
-//        binding.tvPrice.text = priceText
-//    }
+    private fun setupView(){
+        val name = intent.getStringExtra(NAME_EXTRA)
+        val city = intent.getStringExtra(CITY_EXTRA)
+        val cost = intent.getStringExtra(COST_EXTRA)
+        val path = intent.getStringExtra(PATH_EXTRA)
+        val rating = intent.getStringExtra(RATING_EXTRA)
+
+        supportActionBar?.title = name
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
+        binding.rating.text = rating
+        Glide.with(this)
+            .load(path)
+            .into(binding.imageView)
+    }
     companion object{
         @StringRes
         private val TAB_TITLES = intArrayOf(
             R.string.tab_text_1,
             R.string.tab_text_2
         )
+        const val NAME_EXTRA = "name_extra"
+        const val CITY_EXTRA = "city_extra"
+        const val COST_EXTRA = "cost_extra"
+        const val PATH_EXTRA = "path_extra"
+        const val RATING_EXTRA = "rating_extra"
     }
 }
