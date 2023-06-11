@@ -35,7 +35,7 @@ class SurveyViewModelFactory(private val application: Application) : ViewModelPr
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(SurveyViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return SurveyViewModel(application, Injection.provideRepository()) as T
+            return SurveyViewModel(application, Injection.provideRecommandation()) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

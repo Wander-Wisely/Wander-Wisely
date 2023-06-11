@@ -1,12 +1,18 @@
 package id.com.wanderwisely.data.di
 
-import id.com.wanderwisely.data.model.remote.ApiConfigWisata
+import id.com.wanderwisely.data.model.remote.ApiConfig
 import id.com.wanderwisely.data.repository.WanderWiselyRepository
 
 object Injection {
+    private val apiServiceWisata = ApiConfig.getWisataApiService()
+    private val apiServiceRekomendasi = ApiConfig.getRecommendApiServise()
+
     fun provideRepository(): WanderWiselyRepository {
-        val apiService = ApiConfigWisata.getApiService()
-        return WanderWiselyRepository.getInstance(apiService)
+        return WanderWiselyRepository.getInstance(apiServiceWisata)
+    }
+
+    fun provideRecommandation(): WanderWiselyRepository {
+        return WanderWiselyRepository.getInstance(apiServiceRekomendasi)
     }
 
 }

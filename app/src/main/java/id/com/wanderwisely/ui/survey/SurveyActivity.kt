@@ -22,6 +22,7 @@ class SurveyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySurveyBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val surveyViewModelFactory = SurveyViewModelFactory(this@SurveyActivity.application)
         surveyViewModel = ViewModelProvider(this, surveyViewModelFactory)[SurveyViewModel::class.java]
 
