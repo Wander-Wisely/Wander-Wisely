@@ -1,23 +1,24 @@
 package id.com.wanderwisely.ui.home.adapter
 
 import android.content.Intent
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingData
 import androidx.paging.PagingDataAdapter
+import androidx.paging.filter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import id.com.wanderwisely.data.model.response.WisataResponse
 import id.com.wanderwisely.databinding.ItemAllTouristBinding
 import id.com.wanderwisely.ui.detail.DetailActivity
-import id.com.wanderwisely.ui.detail.frament.DescriptionFragment
+import kotlinx.coroutines.flow.MutableStateFlow
 
 class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataViewHolder>(
     DIFF_CALLBACK
 ){
+    private val originalDataFlow = MutableStateFlow<PagingData<WisataResponse>>(PagingData.empty())
     class WisataViewHolder(private val binding :ItemAllTouristBinding): RecyclerView.ViewHolder(binding.root) {
-
         fun bind(wisata : WisataResponse){
             binding.itemTouristName.text = wisata.name
             binding.tvLocation.text = wisata.city
@@ -56,13 +57,28 @@ class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataView
             }
         }
     }
+    suspend fun filterData(query: String?, category: String?) {
+        val originalData = originalDataFlow.value
+        val filteredData = if (query.isNullOrBlank() && (category.isNullOrBlank() || category == "All")) {
+            originalData
+        } else {
+            originalData.filter {
+                (query.isNullOrBlank() || it.name?.contains(query, ignoreCase = true) == true) &&
+                        (category.isNullOrBlank() || it.tourismType?.name == category || category == "All")
+            }
+        }
+        submitData(filteredData)
+    }
+
+    fun updateData(data: PagingData<WisataResponse>) {
+        originalDataFlow.value = data
+    }
     override fun onBindViewHolder(holder: WisataViewHolder, position: Int) {
         val wisata = getItem(position)
         if(wisata != null){
             holder.bind(wisata)
         }
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WisataViewHolder {
         val binding = ItemAllTouristBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return WisataViewHolder(binding)

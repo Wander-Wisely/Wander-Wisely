@@ -11,8 +11,7 @@ import id.com.wanderwisely.data.repository.WanderWiselyRepository
 class HomeViewModel(wanderWiselyRepository: WanderWiselyRepository):ViewModel() {
     val wisata : LiveData<PagingData<WisataResponse>> = wanderWiselyRepository.getAllWisata().cachedIn(viewModelScope)
 
-    private val _recommendation = MutableLiveData<List<DataItem?>?>()
-    val recommendation: LiveData<List<DataItem?>?> = _recommendation
+    val recommendation: LiveData<PagingData<DataItem>> = wanderWiselyRepository.getAllRecommend().cachedIn(viewModelScope)
 
 }
 class HomeViewModelFactory : ViewModelProvider.Factory {

@@ -67,4 +67,6 @@
     <string name="question3">Liburan seperti apa yang anda inginkan?</string>
     <string name="fail">Gagal Memuat Data Cek Koneksi Internet</string>
     <string name="restart">Coba Lagi</string>
+    <string name="search_hint">Cari</string>
+    <string name="cant_find_place">Tidak Dapat Menemukan Tempat</string>
 </resources>

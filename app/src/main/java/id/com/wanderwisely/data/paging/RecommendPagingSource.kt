@@ -3,10 +3,11 @@ package id.com.wanderwisely.data.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import id.com.wanderwisely.data.model.remote.ApiService
+import id.com.wanderwisely.data.model.remote.`interface`.RecommendApiService
 import id.com.wanderwisely.data.model.response.DataItem
 
 class RecommendPagingSource(
-    private val apiService: ApiService
+    private val apiService: RecommendApiService
 ): PagingSource<Int, DataItem>()
 {
     private companion object {

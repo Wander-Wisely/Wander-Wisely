@@ -67,4 +67,6 @@
     <string name="question3">What Kind of Vacation Do You Want?</string>
     <string name="restart">Try Again</string>
     <string name="fail">Fail Get Data Check Your Internet</string>
+    <string name="search_hint">Search</string>
+    <string name="cant_find_place">Cant Find Place</string>
 </resources>
