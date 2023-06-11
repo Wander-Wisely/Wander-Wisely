@@ -6,7 +6,6 @@ import androidx.lifecycle.*
 import id.com.wanderwisely.data.di.Injection
 import id.com.wanderwisely.data.model.response.RecommendResponse
 import id.com.wanderwisely.data.repository.WanderWiselyRepository
-import id.com.wanderwisely.ui.home.HomeViewModel
 import kotlinx.coroutines.launch
 
 class SurveyViewModel(
@@ -15,7 +14,6 @@ class SurveyViewModel(
 ): ViewModel() {
     private val _recommendResponse = MutableLiveData<RecommendResponse>()
     val recommendResponse: LiveData<RecommendResponse> = _recommendResponse
-
 
     fun surveyUser(hobbies: List<String>, types: List<String>, budgetMin: Int, budgetMax: Int) {
         viewModelScope.launch {
@@ -35,7 +33,7 @@ class SurveyViewModelFactory(private val application: Application) : ViewModelPr
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(SurveyViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return SurveyViewModel(application, Injection.provideRecommandation()) as T
+            return SurveyViewModel(application, Injection.provideRepository()) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

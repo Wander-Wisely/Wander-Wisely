@@ -1,21 +1,32 @@
 package id.com.wanderwisely.ui.home
 
+import android.app.SearchManager
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
+import android.view.Menu
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.com.wanderwisely.R
-import id.com.wanderwisely.data.model.response.DataItem
 import id.com.wanderwisely.databinding.ActivityHomeBinding
-import id.com.wanderwisely.ui.home.adapter.WisataAdapter
 import id.com.wanderwisely.ui.favorite.FavoriteActivity
 import id.com.wanderwisely.ui.home.adapter.LoadingStateAdapter
+import id.com.wanderwisely.ui.home.adapter.RecommendAdapter
+import id.com.wanderwisely.ui.home.adapter.WisataAdapter
 import id.com.wanderwisely.ui.plan.PlanActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding : ActivityHomeBinding
     private lateinit var homeViewModel :HomeViewModel
+    private lateinit var wisataAdapter: WisataAdapter
+    private lateinit var recommendAdapter: RecommendAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
@@ -23,6 +34,9 @@ class HomeActivity : AppCompatActivity() {
 
         val homeViewModelFactory = HomeViewModelFactory()
         homeViewModel = ViewModelProvider(this, homeViewModelFactory)[HomeViewModel::class.java]
+
+        wisataAdapter = WisataAdapter()
+        recommendAdapter = RecommendAdapter()
 
         binding.bottomNavigationView.selectedItemId = R.id.menu_home
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {item ->
@@ -46,25 +60,83 @@ class HomeActivity : AppCompatActivity() {
             }
         }
         setupAction()
+        handleRecommendation()
+        binding.allCategory.setOnClickListener {
+            filterData(null, null)
+        }
 
-        homeViewModel.recommendation.observe(this) { recommendation ->
-            if (recommendation != null) {
-                handleRecommendation(recommendation)
+        binding.BeachCategory.setOnClickListener {
+            filterData(null, "Pantai")
+        }
+
+        binding.NationalParkCategory.setOnClickListener {
+            filterData(null, "Taman Nasional")
+        }
+
+        binding.NatureCategory.setOnClickListener {
+            filterData(null, "Alam")
+        }
+
+        binding.CategoryHistory.setOnClickListener {
+            filterData(null, "Sejarah")
+        }
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.home_menu, menu)
+
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        val searchView = menu.findItem(R.id.search).actionView as? SearchView
+
+        searchView?.setSearchableInfo(searchManager.getSearchableInfo(componentName))
+        searchView?.queryHint = resources.getString(R.string.search_hint)
+
+        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                filterData(query,null)
+                searchView.clearFocus()
+                return true
+            }
+            override fun onQueryTextChange(newText: String): Boolean {
+                filterData(newText,null)
+                return true
+            }
+        })
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.setting -> {
+                startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
             }
         }
+        return super.onOptionsItemSelected(item)
     }
     private fun setupAction(){
-        val adapter = WisataAdapter()
-        binding.recyclerView.adapter = adapter.withLoadStateFooter(
+        binding.recyclerView.adapter = wisataAdapter.withLoadStateFooter(
             footer = LoadingStateAdapter {
-                adapter.retry()
+                wisataAdapter.retry()
             })
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        homeViewModel.wisata.observe(this){
-            adapter.submitData(lifecycle,it)
+        homeViewModel.wisata.observe(this) {data ->
+            wisataAdapter.updateData(data)
+            filterData(null,null)
         }
     }
-    private fun handleRecommendation(recommendation: List<DataItem?>?) {
+    private fun handleRecommendation() {
+        binding.rvRecommendation.adapter = recommendAdapter.withLoadStateFooter(
+            footer = LoadingStateAdapter{
+                recommendAdapter.retry()
+            }
+        )
+        binding.rvRecommendation.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
+        homeViewModel.recommendation.observe(this) { data ->
+            recommendAdapter.submitData(lifecycle, data)
+        }
+    }
 
+    private fun filterData(query: String?, category: String?) {
+        CoroutineScope(Dispatchers.Main).launch {
+            wisataAdapter.filterData(query,category)
+        }
     }
 }

@@ -1,6 +1,8 @@
 package id.com.wanderwisely.data.model.remote
 
 import id.com.wanderwisely.BuildConfig
+import id.com.wanderwisely.data.model.remote.`interface`.RecommendApiService
+import id.com.wanderwisely.data.model.remote.`interface`.WisataApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -30,7 +32,14 @@ class ApiConfig {
             client(client)
         }.build()
 
-        fun getWisataApiService(): ApiService = retrofit.create(ApiService::class.java)
-        fun getRecommendApiServise(): ApiService = retrofit.create(ApiService::class.java)
+//        private val weatherRetrofit = Retrofit.Builder().apply {
+//            baseUrl("")
+//            addConverterFactory(GsonConverterFactory.create())
+//            client(client)
+//        }.build()
+
+        fun getWisataApiService(): WisataApiService = retrofit.create(WisataApiService::class.java)
+        fun getRecommendApiService(): RecommendApiService = rcmRetrofit.create(RecommendApiService::class.java)
+//        fun getWeatherApiService(): WeatherApiService = weatherRetrofit.create(WeatherApiService::class.java)
     }
 }

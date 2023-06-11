@@ -10,21 +10,15 @@ import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface ApiService {
-    @GET("current")
-    fun getWeather(
-        @Query("access_key") accessKey :String,
-        @Query("query") query : String
-    ): Call<WeatherResponse>
-
     @GET("alls")
     suspend fun getWisata(
         @Query("page") page: Int?,
         @Query("size") size: Int?
     ) : List<WisataResponse>
-
     @GET("index")
     suspend fun getRecommend(): RecommendResponse
 
     @POST("recommendation")
     suspend fun surveyUser(@Body body: SurveyRequestBody): RecommendResponse
+
 }

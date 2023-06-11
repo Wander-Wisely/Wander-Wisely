@@ -2,11 +2,11 @@ package id.com.wanderwisely.data.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import id.com.wanderwisely.data.model.remote.ApiService
+import id.com.wanderwisely.data.model.remote.`interface`.WisataApiService
 import id.com.wanderwisely.data.model.response.WisataResponse
 
 class WisataPagingSource(
-    private val apiService: ApiService
+    private val apiService: WisataApiService
 ): PagingSource<Int, WisataResponse>() {
 
     private companion object {
