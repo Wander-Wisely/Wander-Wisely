@@ -13,6 +13,7 @@ import id.com.wanderwisely.ui.home.adapter.WisataAdapter
 import id.com.wanderwisely.ui.favorite.FavoriteActivity
 import id.com.wanderwisely.ui.plan.PlanActivity
 import id.com.wanderwisely.ui.survey.SurveyViewModel
+import id.com.wanderwisely.ui.survey.SurveyViewModelFactory
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding : ActivityHomeBinding
@@ -22,7 +23,9 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        surveyViewModel = ViewModelProvider(this)[SurveyViewModel::class.java]
+
+        val surveyViewModelFactory = SurveyViewModelFactory(this@HomeActivity.application)
+        surveyViewModel = ViewModelProvider(this, surveyViewModelFactory)[SurveyViewModel::class.java]
 
         val homeViewModelFactory = HomeViewModelFactory(surveyViewModel)
         homeViewModel = ViewModelProvider(this, homeViewModelFactory)[HomeViewModel::class.java]
