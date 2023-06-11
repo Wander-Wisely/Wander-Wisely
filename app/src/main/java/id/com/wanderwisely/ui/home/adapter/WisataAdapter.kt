@@ -24,7 +24,7 @@ class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataView
             val priceText = if (totalPrice == 0) {
                 "Free"
             } else {
-                (totalPrice / 2).toString()
+                "Rp. ${(totalPrice / 2)}"
             }
             binding.tvPrice.text = priceText
             val mediaItem = wisata.tourismFiles?.firstOrNull() // Assuming you want to load the first media item

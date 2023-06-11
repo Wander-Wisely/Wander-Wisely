@@ -25,15 +25,32 @@ class DetailActivity : AppCompatActivity() {
         val tabs: TabLayout = findViewById(R.id.tab_layout)
         TabLayoutMediator(tabs, viewPager){ tab, position ->
             tab.text = resources.getString(TAB_TITLES[position])
-            
         }.attach()
         supportActionBar?.elevation = 0f
+
         val image = "https://drive.google.com/file/d/1lzYeoVZGaf-G-VsKLwZugkeUKxYlaG9Q/view?usp=share_link"
         Glide.with(this)
             .load(image)
             .into(binding.imageView)
-    }
 
+        binding.btnTambahRencana.setOnClickListener {
+//            insertPlanToDatabase()
+        }
+    }
+//    private fun insertPlanToDatabase(){
+//        val nameWisata =
+//        binding.itemTouristName.text = wisata.name
+//        binding.tvLocation.text = wisata.city
+//        val fromPrice = wisata.costFrom
+//        val costTo = wisata.costTo
+//        val totalPrice = fromPrice + costTo
+//        val priceText = if (totalPrice == 0) {
+//            "Free"
+//        } else {
+//            "Rp. ${(totalPrice / 2)}"
+//        }
+//        binding.tvPrice.text = priceText
+//    }
     companion object{
         @StringRes
         private val TAB_TITLES = intArrayOf(

@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiConfigWisata {
     companion object{
-        fun  getApiService(): ApiService{
+        fun getApiService(): ApiService{
             val loggingInterceptor = if (BuildConfig.DEBUG) {
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
             } else {
@@ -19,7 +19,7 @@ class ApiConfigWisata {
                 .addInterceptor(loggingInterceptor)
                 .build()
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://560c-180-248-47-144.ngrok-free.app/api/v1/")
+                .baseUrl("https://backend-dot-wanderwiselyc23ps444.et.r.appspot.com/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

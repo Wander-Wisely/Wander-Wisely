@@ -65,4 +65,6 @@
     <string name="search">Cari</string>
     <string name="setting">Pengaturan</string>
     <string name="question3">Liburan seperti apa yang anda inginkan?</string>
+    <string name="fail">Gagal Memuat Data Cek Koneksi Internet</string>
+    <string name="restart">Coba Lagi</string>
 </resources>

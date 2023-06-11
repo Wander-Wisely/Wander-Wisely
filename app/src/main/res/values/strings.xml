@@ -65,4 +65,6 @@
     <string name="search">Search</string>
     <string name="setting">Setting</string>
     <string name="question3">What Kind of Vacation Do You Want?</string>
+    <string name="restart">Try Again</string>
+    <string name="fail">Fail Get Data Check Your Internet</string>
 </resources>
