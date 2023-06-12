@@ -6,39 +6,38 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.StringRes
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.maps.SupportMapFragment
 import id.com.wanderwisely.R
+import id.com.wanderwisely.data.repository.Result
+import id.com.wanderwisely.databinding.FragmentDescriptionBinding
 import id.com.wanderwisely.ui.detail.DetailActivity
 
 
 class DescriptionFragment : Fragment() {
+    private var _binding : FragmentDescriptionBinding? = null
+    private val binding get() = _binding
+    private lateinit var viewModel: DescriptionFragmenViewModel
+    private lateinit var name : String
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_description, container, false)
-    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentDescriptionBinding.bind(view)
 
-        setupView()
+        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(DescriptionFragmenViewModel::class.java)
+        viewModel.getDetailWisata(id)
+        viewModel.getWisataDetail().observe(viewLifecycleOwner){
+            if(it != null){
+                binding?.description?.text = it.descriptions
+                showLoading(false)
+            }
+        }
+
     }
 
-    private fun setupView() {
-        val description = arguments?.getString("DESCRIPTION_EXTRA")
-        val textView = view?.findViewById<TextView>(R.id.description)
-        textView?.text = description
-    }
-
-    companion object{
-        const val DESCRIPTION_EXTRA = "description_extra"
+    private fun showLoading(state: Boolean) {
+        binding?.progressBar?.visibility = if (state) View.VISIBLE else View.GONE
     }
 }
