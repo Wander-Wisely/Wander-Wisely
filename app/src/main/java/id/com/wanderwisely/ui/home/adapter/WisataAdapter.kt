@@ -52,6 +52,8 @@ class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataView
                 intentDetail.putExtra(DetailActivity.PATH_EXTRA, urlImage)
                 intentDetail.putExtra(DetailActivity.RATING_EXTRA, wisata.rating)
                 intentDetail.putExtra(DetailActivity.COST_EXTRA, textPrice)
+                intentDetail.putExtra(DetailActivity.DESCRIPTION_EXTRA, wisata.descriptions)
+                intentDetail.putExtra(DetailActivity.EXTRA_ID, wisata.id)
                 itemView.context.startActivity(intentDetail)
 
             }
