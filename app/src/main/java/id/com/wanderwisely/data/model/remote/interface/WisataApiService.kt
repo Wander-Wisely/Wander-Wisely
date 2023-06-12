@@ -1,7 +1,6 @@
 package id.com.wanderwisely.data.model.remote.`interface`
 
 import id.com.wanderwisely.data.model.response.WisataResponse
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -14,7 +13,7 @@ interface WisataApiService {
     ): List<WisataResponse>
 
     @GET("alls/{id}")
-    fun getDetailWisata(
+    suspend fun getDetailWisata(
         @Path("id") id: Int?
-    ): Call<WisataResponse>
+    ): WisataResponse
 }
