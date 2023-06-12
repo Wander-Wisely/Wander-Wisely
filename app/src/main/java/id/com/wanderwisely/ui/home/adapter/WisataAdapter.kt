@@ -37,25 +37,9 @@ class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataView
                 .load(imageUrl)
                 .into(binding.photo)
             itemView.setOnClickListener {
-                val fromCost = wisata.costFrom
-                val toCost = wisata.costTo
-                val priceTotal = fromCost + toCost
-                val textPrice = if (priceTotal == 0) {
-                    "Free"
-                } else {
-                    "Rp. ${(priceTotal / 2)}"
-                }
-                val itemMedia = wisata.tourismFiles?.firstOrNull() // Assuming you want to load the first media item
-                val urlImage = itemMedia?.path
                 val intentDetail = Intent(itemView.context, DetailActivity::class.java)
-                intentDetail.putExtra(DetailActivity.NAME_EXTRA, wisata.name)
-                intentDetail.putExtra(DetailActivity.PATH_EXTRA, urlImage)
-                intentDetail.putExtra(DetailActivity.RATING_EXTRA, wisata.rating)
-                intentDetail.putExtra(DetailActivity.COST_EXTRA, textPrice)
-                intentDetail.putExtra(DetailActivity.DESCRIPTION_EXTRA, wisata.descriptions)
-                intentDetail.putExtra(DetailActivity.EXTRA_ID, wisata.id)
+                intentDetail.putExtra("id", wisata.id)
                 itemView.context.startActivity(intentDetail)
-
             }
         }
     }

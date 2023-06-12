@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="200sp"
         android:layout_marginStart="25dp"
-        android:text="WOY INI HARUS GANTI "
+        android:text="@string/list_of_facilities"
         app:layout_constraintBottom_toTopOf="@+id/galerry"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,6 +98,7 @@
 
     <ImageView
         android:id="@+id/imageView3"
+        android:contentDescription="@string/cuaca"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:src="@drawable/cuaca"

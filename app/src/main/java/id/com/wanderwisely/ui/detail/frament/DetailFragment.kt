@@ -1,24 +1,25 @@
 package id.com.wanderwisely.ui.detail.frament
 
-import androidx.fragment.app.Fragment
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import id.com.wanderwisely.R
+import id.com.wanderwisely.data.model.response.TourismFacilitiesItem
+import id.com.wanderwisely.data.model.response.WisataResponse
 import id.com.wanderwisely.databinding.FragmentDetailBinding
+import id.com.wanderwisely.ui.detail.DetailViewModel
 
 class DetailFragment : Fragment() {
-    private var _binding : FragmentDetailBinding? = null
-    private val binding get() = _binding
+    private lateinit var detailViewModel: DetailViewModel
+    private lateinit var binding: FragmentDetailBinding
 
     private val callback = OnMapReadyCallback { googleMap ->
         val location = LatLng(-6.3538282
@@ -37,15 +38,27 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
-        return inflater.inflate(R.layout.fragment_detail, container, false)
+    ): View {
+        binding = FragmentDetailBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        detailViewModel = ViewModelProvider(requireActivity())[DetailViewModel::class.java]
+
+        detailViewModel.detailTourist.observe(viewLifecycleOwner){tourist->
+            setDetailFragment(tourist)
+        }
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
 
     }
-
+    fun setDetailFragment(touristId: WisataResponse){
+        val tourismFacilities: List<TourismFacilitiesItem?>? = touristId.tourismFacilities
+        val formattedText = tourismFacilities?.joinToString("\n") { facility ->
+            facility?.name ?: ""
+        }
+        binding.tvFasilitas.text = formattedText
+    }
 }

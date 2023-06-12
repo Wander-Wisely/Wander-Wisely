@@ -1,30 +1,29 @@
 package id.com.wanderwisely.ui.survey
 
 import android.app.Application
-import android.widget.Toast
+import android.content.Context
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.*
-import id.com.wanderwisely.data.di.Injection
-import id.com.wanderwisely.data.model.response.RecommendResponse
-import id.com.wanderwisely.data.repository.WanderWiselyRepository
+import id.com.wanderwisely.data.model.remote.SurveyPref
 import kotlinx.coroutines.launch
+
 
 class SurveyViewModel(
     private val application: Application,
-    private val wanderWiselyRepository: WanderWiselyRepository
-): ViewModel() {
-    private val _recommendResponse = MutableLiveData<RecommendResponse>()
-    val recommendResponse: LiveData<RecommendResponse> = _recommendResponse
+) : ViewModel() {
+    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "survey_preferences")
 
-    fun surveyUser(hobbies: List<String>, types: List<String>, budgetMin: Int, budgetMax: Int) {
+    private val _surveyData = MutableLiveData<SurveyPref>()
+    val surveyData: LiveData<SurveyPref> = _surveyData
+
+
+    fun submitSurveyData(hobbies: List<String>, types: List<String>, budgetMin: Int, budgetMax: Int) {
+        val surveyPref = SurveyPref.getInstance(application.dataStore)
         viewModelScope.launch {
-
-            try {
-                val response = wanderWiselyRepository.surveyUser(hobbies, types, budgetMin, budgetMax)
-                _recommendResponse.value = response
-            } catch (e: Exception) {
-                val errorMessage = "An error occurred: ${e.message}"
-                Toast.makeText(application, errorMessage, Toast.LENGTH_SHORT).show()
-            }
+            surveyPref.saveSurveyPref(hobbies, types, budgetMin, budgetMax)
+            _surveyData.value = surveyPref
         }
     }
 }
@@ -33,7 +32,7 @@ class SurveyViewModelFactory(private val application: Application) : ViewModelPr
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(SurveyViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return SurveyViewModel(application, Injection.provideRepository()) as T
+            return SurveyViewModel(application) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

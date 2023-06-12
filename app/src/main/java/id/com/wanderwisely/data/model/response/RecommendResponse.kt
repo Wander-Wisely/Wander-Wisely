@@ -4,20 +4,14 @@ import com.google.gson.annotations.SerializedName
 
 data class RecommendResponse(
 
-	@field:SerializedName("total")
-	val total: Int? = null,
-
 	@field:SerializedName("data")
-	val data: List<DataItem>,
+	val data: List<DataItem?>? = null,
 
 	@field:SerializedName("success")
 	val success: Boolean? = null
 )
 
 data class DataItem(
-
-	@field:SerializedName("tourism_types.createdAt")
-	val tourismTypesCreatedAt: String? = null,
 
 	@field:SerializedName("city")
 	val city: String? = null,
@@ -32,10 +26,16 @@ data class DataItem(
 	val descriptions: String? = null,
 
 	@field:SerializedName("cost_to")
-	val costTo: Int? = null,
+	val costTo: Any? = null,
 
 	@field:SerializedName("createdAt")
 	val createdAt: String? = null,
+
+	@field:SerializedName("path")
+	val path: Any? = null,
+
+	@field:SerializedName("filename")
+	val filename: Any? = null,
 
 	@field:SerializedName("province")
 	val province: String? = null,
@@ -43,8 +43,8 @@ data class DataItem(
 	@field:SerializedName("tourism_type_id")
 	val tourismTypeId: Int? = null,
 
-	@field:SerializedName("tourism_types.id")
-	val tourismTypesId: Int? = null,
+	@field:SerializedName("tourism_attraction_id")
+	val tourismAttractionId: String? = null,
 
 	@field:SerializedName("name")
 	val name: String? = null,
@@ -52,14 +52,11 @@ data class DataItem(
 	@field:SerializedName("id")
 	val id: Int? = null,
 
-	@field:SerializedName("tourism_types.name")
-	val tourismTypesName: String? = null,
-
-	@field:SerializedName("tourism_types.updatedAt")
-	val tourismTypesUpdatedAt: String? = null,
+	@field:SerializedName("tourism_type_name")
+	val tourismTypeName: String? = null,
 
 	@field:SerializedName("cost_from")
-	val costFrom: Int? = null,
+	val costFrom: Any? = null,
 
 	@field:SerializedName("longitude")
 	val longitude: String? = null,
