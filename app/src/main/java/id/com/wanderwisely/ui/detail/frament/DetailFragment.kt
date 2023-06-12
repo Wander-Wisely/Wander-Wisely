@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -13,26 +14,17 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import id.com.wanderwisely.R
 import id.com.wanderwisely.data.model.response.TourismFacilitiesItem
+import id.com.wanderwisely.data.model.response.TourismFilesItem
 import id.com.wanderwisely.data.model.response.WisataResponse
 import id.com.wanderwisely.databinding.FragmentDetailBinding
 import id.com.wanderwisely.ui.detail.DetailViewModel
+import id.com.wanderwisely.ui.home.adapter.GalleryAdapter
 
-class DetailFragment : Fragment() {
+class DetailFragment() : Fragment() {
     private lateinit var detailViewModel: DetailViewModel
     private lateinit var binding: FragmentDetailBinding
+    private lateinit var adapter: GalleryAdapter
 
-    private val callback = OnMapReadyCallback { googleMap ->
-        val location = LatLng(-6.3538282
-            , 127.940833)
-        googleMap.addMarker(
-            MarkerOptions()
-                .position(location)
-                .title("Gunung Rinjani")
-                .snippet("Gunung Rinjani Jawa timur")
-        )
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 15f))
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,8 +42,7 @@ class DetailFragment : Fragment() {
         detailViewModel.detailTourist.observe(viewLifecycleOwner){tourist->
             setDetailFragment(tourist)
         }
-        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
-        mapFragment?.getMapAsync(callback)
+
 
     }
     fun setDetailFragment(touristId: WisataResponse){
@@ -59,6 +50,31 @@ class DetailFragment : Fragment() {
         val formattedText = tourismFacilities?.joinToString("\n") { facility ->
             facility?.name ?: ""
         }
+        val tourismImage: List<TourismFilesItem?>? = touristId.tourismFiles
+        adapter = GalleryAdapter(tourismImage)
+        adapter.notifyDataSetChanged()
+        binding.apply {
+            imageRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            imageRv.setHasFixedSize(true)
+            imageRv.adapter = adapter
+        }
         binding.tvFasilitas.text = formattedText
+        val tourismLon = touristId.longitude
+        val tourismLat = touristId.latitude
+        val city = touristId.city
+        val name = touristId.name
+        val callback = OnMapReadyCallback { googleMap ->
+            val location = LatLng(tourismLat!!.toDouble()
+                , tourismLon!!.toDouble())
+            googleMap.addMarker(
+                MarkerOptions()
+                    .position(location)
+                    .title(name)
+                    .snippet(city)
+            )
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 15f))
+        }
+        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
+        mapFragment?.getMapAsync(callback)
     }
 }
