@@ -3,6 +3,7 @@ package id.com.wanderwisely.ui.favorite
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import id.com.wanderwisely.R
 import id.com.wanderwisely.databinding.ActivityFavoriteBinding
 import id.com.wanderwisely.ui.home.HomeActivity
@@ -10,6 +11,7 @@ import id.com.wanderwisely.ui.plan.PlanActivity
 
 class FavoriteActivity : AppCompatActivity() {
     private lateinit var binding : ActivityFavoriteBinding
+    private lateinit var favoriteViewModel: FavoriteViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFavoriteBinding.inflate(layoutInflater)
@@ -37,6 +39,6 @@ class FavoriteActivity : AppCompatActivity() {
                 else -> false
             }
         }
-
+        favoriteViewModel = ViewModelProvider(this).get(FavoriteViewModel::class.java)
     }
 }

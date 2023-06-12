@@ -50,6 +50,18 @@
                     android:drawablePadding="8dp"
                     android:text="@string/rating_tourist"
                     app:drawableStartCompat="@drawable/baseline_star" />
+                <ToggleButton
+                    android:id="@+id/favorite"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:textOn=""
+                    android:textOff=""
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="330dp"
+                    android:contentDescription="@string/favorite"
+                    android:background="@drawable/baseline_favorite_border" />
             </com.google.android.material.card.MaterialCardView>
 
             <ProgressBar
