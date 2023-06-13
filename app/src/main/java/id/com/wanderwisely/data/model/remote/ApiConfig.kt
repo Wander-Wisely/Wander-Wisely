@@ -2,6 +2,7 @@ package id.com.wanderwisely.data.model.remote
 
 import id.com.wanderwisely.BuildConfig
 import id.com.wanderwisely.data.model.remote.`interface`.RecommendApiService
+import id.com.wanderwisely.data.model.remote.`interface`.WeatherApiService
 import id.com.wanderwisely.data.model.remote.`interface`.WisataApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -18,28 +19,34 @@ class ApiConfig {
 
         private val client = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
+//            .addInterceptor { chain ->
+//                val request = chain.request().newBuilder()
+//                    .header("Content-Type", "application/json")
+//                    .build()
+//                chain.proceed(request)
+//            }
             .build()
 
         private val retrofit = Retrofit.Builder().apply {
-            baseUrl("https://backend-dot-wanderwiselyc23ps444.et.r.appspot.com/api/v1/")
+            baseUrl(BuildConfig.API_URL_WISATA)
             addConverterFactory(GsonConverterFactory.create())
             client(client)
         }.build()
 
         private val rcmRetrofit = Retrofit.Builder().apply {
-            baseUrl("https://810d-125-166-3-181.ngrok-free.app/")
+            baseUrl(BuildConfig.API_URL_RECOMMEND)
             addConverterFactory(GsonConverterFactory.create())
             client(client)
         }.build()
 
-//        private val weatherRetrofit = Retrofit.Builder().apply {
-//            baseUrl("")
-//            addConverterFactory(GsonConverterFactory.create())
-//            client(client)
-//        }.build()
+        private val weatherRetrofit = Retrofit.Builder().apply {
+            baseUrl(BuildConfig.API_URL_WEATHER)
+            addConverterFactory(GsonConverterFactory.create())
+            client(client)
+        }.build()
 
         fun getWisataApiService(): WisataApiService = retrofit.create(WisataApiService::class.java)
         fun getRecommendApiService(): RecommendApiService = rcmRetrofit.create(RecommendApiService::class.java)
-//        fun getWeatherApiService(): WeatherApiService = weatherRetrofit.create(WeatherApiService::class.java)
+        fun getWeatherApiService(): WeatherApiService = weatherRetrofit.create(WeatherApiService::class.java)
     }
 }

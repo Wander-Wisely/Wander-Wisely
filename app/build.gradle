@@ -16,7 +16,11 @@ android {
         versionCode 1
         versionName "1.0"
 
-        buildConfigField("String", "API_URL_WEATHER", '"https://api.weatherstack.com"')
+        buildConfigField("String", "API_URL_WEATHER", '"https://api.openweathermap.org/data/2.5/"')
+        buildConfigField("String", "API_URL_WISATA", '"https://backend-dot-wanderwiselyc23ps444.et.r.appspot.com/api/v1/"')
+        buildConfigField("String", "API_URL_RECOMMEND", '"https://recommend-dot-wanderwiselyc23ps444.et.r.appspot.com/"')
+        buildConfigField("String", "API_KEY_WEATHER", '"b838ff6c2c09d4343ac0acc5650b1949"')
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -43,7 +47,6 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation "androidx.datastore:datastore-preferences:1.0.0"
     implementation "androidx.datastore:datastore-preferences-core:1.0.0"

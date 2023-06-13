@@ -6,6 +6,7 @@
         android:id="@+id/galerryImage"
         android:layout_width="115dp"
         android:layout_height="115dp"
+        android:scaleType="fitXY"
         android:layout_margin="5dp"
         android:contentDescription="@string/galeri_1"
         android:src="@drawable/foto1_galeri" />

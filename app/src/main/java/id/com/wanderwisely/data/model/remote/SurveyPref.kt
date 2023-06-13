@@ -8,8 +8,8 @@ import kotlinx.coroutines.flow.map
 import okio.IOException
 
 class SurveyPref private constructor(private val dataStore: DataStore<Preferences>) {
-    private val hobbies = stringPreferencesKey("hobbies")
-    private val types = stringPreferencesKey("types")
+    private val hobbies = stringSetPreferencesKey("hobbies")
+    private val types = stringSetPreferencesKey("types")
     private val budgetMin = intPreferencesKey("budget_min")
     private val budgetMax = intPreferencesKey("budget_max")
 
@@ -24,17 +24,17 @@ class SurveyPref private constructor(private val dataStore: DataStore<Preference
             }
             .map { preferences ->
                 SurveyPreferences(
-                    hobbies = preferences[hobbies]?.split(","),
-                    types = preferences[types]?.split(","),
-                    budgetMin = preferences[budgetMin],
-                    budgetMax = preferences[budgetMax]
+                    hobbies = preferences[hobbies]?.toList() ?: emptyList(),
+                    types = preferences[types]?.toList() ?: emptyList(),
+                    budget_min = preferences[budgetMin],
+                    budget_max = preferences[budgetMax]
                 )
             }
 
     suspend fun saveSurveyPref(hobbies: List<String>, types: List<String>, budgetMin: Int, budgetMax: Int) {
         dataStore.edit { preferences ->
-            preferences[this.hobbies] = hobbies.joinToString(",")
-            preferences[this.types] = types.joinToString(",")
+            preferences[this.hobbies] = hobbies.toSet()
+            preferences[this.types] = types.toSet()
             preferences[this.budgetMin] = budgetMin
             preferences[this.budgetMax] = budgetMax
         }
@@ -56,6 +56,6 @@ class SurveyPref private constructor(private val dataStore: DataStore<Preference
 data class SurveyPreferences(
     val hobbies: List<String>?,
     val types: List<String>?,
-    val budgetMin: Int?,
-    val budgetMax: Int?
+    val budget_min: Int?,
+    val budget_max: Int?
 )

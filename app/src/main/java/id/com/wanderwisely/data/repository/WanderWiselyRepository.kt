@@ -8,12 +8,14 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
+import id.com.wanderwisely.BuildConfig
 import id.com.wanderwisely.data.model.remote.ApiConfig
 import id.com.wanderwisely.data.model.remote.SurveyPref
 import id.com.wanderwisely.data.model.response.DataItem
+import id.com.wanderwisely.data.model.response.WeatherResponse
 import id.com.wanderwisely.data.model.response.WisataResponse
-import id.com.wanderwisely.data.paging.RecommendPagingSource
 import id.com.wanderwisely.data.paging.WisataPagingSource
+import kotlinx.coroutines.flow.first
 
 class WanderWiselyRepository(
     private val surveyPref: SurveyPref
@@ -26,16 +28,27 @@ class WanderWiselyRepository(
             pagingSourceFactory = { WisataPagingSource(wisataApiService) }
         ).liveData
     }
-    fun getAllRecommend(): LiveData<PagingData<DataItem>> {
-        return Pager(
-            config = PagingConfig(pageSize = 5),
-            pagingSourceFactory = { RecommendPagingSource(recommendApiService,surveyPref) }
-        ).liveData
+    suspend fun getAllRecommend(context: Context, dataItems: MutableLiveData<List<DataItem>>){
+        try {
+            val surveyPreferences = surveyPref.surveyPreferencesFlow.first()
+            val response = recommendApiService.surveyUser(surveyPreferences)
+            dataItems.value = response.data as List<DataItem>?
+        } catch (exception: Exception) {
+            Toast.makeText(context, "${exception.message}",Toast.LENGTH_SHORT).show()
+        }
     }
     suspend fun getDetailWisata(context: Context, touristId: Int, detailTourist: MutableLiveData<WisataResponse>){
         try {
             val response = ApiConfig.getWisataApiService().getDetailWisata(touristId)
             detailTourist.value = response
+        }catch (t: Throwable){
+            Toast.makeText(context, "${t.message}",Toast.LENGTH_SHORT).show()
+        }
+    }
+    suspend fun getWeather(context: Context, cityName: String, weatherALl: MutableLiveData<WeatherResponse>){
+        try {
+            val response = ApiConfig.getWeatherApiService().getWeather(BuildConfig.API_KEY_WEATHER, cityName)
+            weatherALl.value = response
         }catch (t: Throwable){
             Toast.makeText(context, "${t.message}",Toast.LENGTH_SHORT).show()
         }

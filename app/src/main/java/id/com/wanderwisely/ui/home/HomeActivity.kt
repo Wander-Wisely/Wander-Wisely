@@ -124,14 +124,10 @@ class HomeActivity : AppCompatActivity() {
         }
     }
     private fun handleRecommendation() {
-        binding.rvRecommendation.adapter = recommendAdapter.withLoadStateFooter(
-            footer = LoadingStateAdapter{
-                recommendAdapter.retry()
-            }
-        )
+        binding.rvRecommendation.adapter = recommendAdapter
         binding.rvRecommendation.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
         homeViewModel.recommendation.observe(this) { data ->
-            recommendAdapter.submitData(lifecycle, data)
+            recommendAdapter.setData(data)
         }
     }
 

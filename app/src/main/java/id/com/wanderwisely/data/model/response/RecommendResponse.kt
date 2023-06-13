@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class RecommendResponse(
 
+	@field:SerializedName("total")
+	val total: Int? = null,
+
 	@field:SerializedName("data")
 	val data: List<DataItem?>? = null,
 
@@ -32,10 +35,10 @@ data class DataItem(
 	val createdAt: String? = null,
 
 	@field:SerializedName("path")
-	val path: Any? = null,
+	val path: List<String?>? = null,
 
 	@field:SerializedName("filename")
-	val filename: Any? = null,
+	val filename: List<String?>? = null,
 
 	@field:SerializedName("province")
 	val province: String? = null,
@@ -44,7 +47,7 @@ data class DataItem(
 	val tourismTypeId: Int? = null,
 
 	@field:SerializedName("tourism_attraction_id")
-	val tourismAttractionId: String? = null,
+	val tourismAttractionId: Any? = null,
 
 	@field:SerializedName("name")
 	val name: String? = null,

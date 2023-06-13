@@ -39,6 +39,7 @@ class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataView
             itemView.setOnClickListener {
                 val intentDetail = Intent(itemView.context, DetailActivity::class.java)
                 intentDetail.putExtra("id", wisata.id)
+                intentDetail.putExtra("city",wisata.city)
                 itemView.context.startActivity(intentDetail)
             }
         }
