@@ -57,6 +57,9 @@ class PlanActivity : AppCompatActivity() {
                 adapter.setList(list)
             }
         }
+        adapter.setOnFavoriteClickListener { plan ->
+            planViewModel.removePlan(plan.id ?: 0)
+        }
     }
     private fun map(wisatas : List<PlanEntity>) : ArrayList<PlanEntity>{
         val list = ArrayList<PlanEntity>()

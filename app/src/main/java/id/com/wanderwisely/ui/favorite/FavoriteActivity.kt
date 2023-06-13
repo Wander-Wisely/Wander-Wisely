@@ -57,6 +57,9 @@ class FavoriteActivity : AppCompatActivity() {
                 adapter.setList(list)
             }
         }
+        adapter.setOnFavoriteClickListener { favorite ->
+            favoriteViewModel.removeFavorite(favorite.id ?: 0)
+        }
     }
     private fun map(wisatas : List<FavoriteEntity>) : ArrayList<FavoriteEntity>{
         val list = ArrayList<FavoriteEntity>()

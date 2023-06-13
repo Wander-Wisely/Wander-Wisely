@@ -41,6 +41,7 @@ class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataView
                 intentDetail.putExtra("id", wisata.id)
                 intentDetail.putExtra("lat",wisata.latitude)
                 intentDetail.putExtra("lon",wisata.longitude)
+                intentDetail.putExtra("city", wisata.city)
                 intentDetail.putExtra("costto", wisata.costTo)
                 intentDetail.putExtra("costfrom", wisata.costFrom)
                 intentDetail.putExtra("tourismfile", imageUrl)
