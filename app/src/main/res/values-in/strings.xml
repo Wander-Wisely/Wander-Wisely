@@ -74,4 +74,10 @@
     <string name="feels_like">Feels Like %s</string>
     <string name="suhu">Suhu</string>
     <string name="weather_type">Tipe Cuaca</string>
+    <string name="successfully_added_plan">Berhasil Menambahkan Plan</string>
+    <string name="plan_have_been_added">"Plan Sudah Di Tambahkan "</string>
+    <string name="successfully_added_favorite">Berhasil Menambahkan Favorite</string>
+    <string name="successfully_remove_favorite">Berhasil Menghapus Favorite</string>
+    <string name="see_plan">Lihat Plan</string>
+    <string name="back_to_home">Kemabali Ke Home</string>
 </resources>

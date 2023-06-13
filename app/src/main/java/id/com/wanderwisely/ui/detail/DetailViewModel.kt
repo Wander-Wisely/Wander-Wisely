@@ -19,6 +19,7 @@ class DetailViewModel(private val wanderWiselyRepository: WanderWiselyRepository
 
     private val _detailTourist = MutableLiveData<WisataResponse>()
     val detailTourist: LiveData<WisataResponse> = _detailTourist
+
     private var planWisataDao : PlanWisataDao?
     private var favoriteWisataDao : FavoriteDao?
     private var wanderWiselyDatabase : WanderWiselyDatabase? = WanderWiselyDatabase.getDatabase(application)
@@ -28,6 +29,7 @@ class DetailViewModel(private val wanderWiselyRepository: WanderWiselyRepository
 
     init{
         planWisataDao = wanderWiselyDatabase?.planWisataDao()
+        favoriteWisataDao = wanderWiselyDatabase?.favoriteDao()
     }
     fun addPlan(city: String? = null, costTo: Int?, name: String? = null, id: Int?, tourismFiles: String?, costFrom: Int?){
         CoroutineScope(Dispatchers.IO).launch {
@@ -42,11 +44,7 @@ class DetailViewModel(private val wanderWiselyRepository: WanderWiselyRepository
             planWisataDao?.addToPlan(wisata)
         }
     }
-    init{
-        wanderWiselyDatabase = WanderWiselyDatabase.getDatabase(application)
-        favoriteWisataDao = wanderWiselyDatabase?.favoriteDao()
-    }
-    fun addFavorite(city: String? = null, costTo: Int?, name: String? = null, id: Int?, tourismFiles: String?, costFrom: Int?){
+    fun addFavorite(city: String? = null, costTo: Int, name: String? = null, id: Int?, tourismFiles: String?, costFrom: Int){
         CoroutineScope(Dispatchers.IO).launch {
             val wisata = FavoriteEntity(
                 id,
