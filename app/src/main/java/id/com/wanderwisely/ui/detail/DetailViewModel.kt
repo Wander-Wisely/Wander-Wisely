@@ -22,13 +22,12 @@ class DetailViewModel(private val wanderWiselyRepository: WanderWiselyRepository
 
     private var planWisataDao : PlanWisataDao?
     private var favoriteWisataDao : FavoriteDao?
-    private var wanderWiselyDatabase : WanderWiselyDatabase?
+    private var wanderWiselyDatabase : WanderWiselyDatabase? = WanderWiselyDatabase.getDatabase(application)
 
-    private val _weatherAll = MutableLiveData<WeatherResponse>()
-    val weatherAll: LiveData<WeatherResponse> = _weatherAll
+    private val _weatherAll = MutableLiveData<List<WeatherResponse>>()
+    val weatherAll: LiveData<List<WeatherResponse>> = _weatherAll
 
     init{
-        wanderWiselyDatabase = WanderWiselyDatabase.getDatabase(application)
         planWisataDao = wanderWiselyDatabase?.planWisataDao()
         favoriteWisataDao = wanderWiselyDatabase?.favoriteDao()
     }
@@ -69,9 +68,9 @@ class DetailViewModel(private val wanderWiselyRepository: WanderWiselyRepository
             wanderWiselyRepository.getDetailWisata(application, touristId, _detailTourist)
         }
     }
-    fun getWeather(cityName: String){
+    fun getWeather(lat: Double, lon: Double){
         viewModelScope.launch {
-            wanderWiselyRepository.getWeather(application, cityName, _weatherAll)
+            wanderWiselyRepository.getWeather(application, lat, lon, _weatherAll)
         }
     }
 

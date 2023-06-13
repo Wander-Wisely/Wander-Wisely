@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Wander Wisely</string>
     <string name="category">Category</string>
-    <string name="recommendation">recommendation</string>
+    <string name="recommendation">Recommendation</string>
     <string name="wanderwisely">WanderWisely</string>
     <string name="your_customized_travel_itinerary_planner_for_indonesia">Your Customized Travel Itinerary Planner for Indonesia</string>
     <string name="first_recommendation">First Recommendation</string>
@@ -68,9 +68,12 @@
     <string name="restart">Try Again</string>
     <string name="fail">Fail Get Data Check Your Internet</string>
     <string name="search_hint">Search</string>
-    <string name="cant_find_place">Cant Find Place</string>
+    <string name="cant_find_place">Cannot Find Place</string>
     <string name="list_of_facilities">List Of Facilities</string>
     <string name="cuaca">Weather</string>
+    <string name="feels_like">Feels Like %s</string>
+    <string name="suhu">Temp</string>
+    <string name="weather_type">Weather Type</string>
     <string name="successfully_added_plan">Successfully Added Plan</string>
     <string name="plan_have_been_added">Plan Have Been Added</string>
     <string name="successfully_added_favorite">Successfully Added To Favorite</string>

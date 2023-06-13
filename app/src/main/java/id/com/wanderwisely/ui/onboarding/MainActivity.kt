@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
             val intent = Intent(this, SurveyActivity::class.java)
             startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(this).toBundle())
+            finish()
         }
     }
 }

@@ -14,17 +14,20 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import id.com.wanderwisely.R
+import id.com.wanderwisely.data.model.response.ListItem
 import id.com.wanderwisely.data.model.response.TourismFacilitiesItem
 import id.com.wanderwisely.data.model.response.TourismFilesItem
 import id.com.wanderwisely.data.model.response.WisataResponse
 import id.com.wanderwisely.databinding.FragmentDetailBinding
 import id.com.wanderwisely.ui.detail.DetailViewModel
 import id.com.wanderwisely.ui.home.adapter.GalleryAdapter
+import id.com.wanderwisely.ui.home.adapter.WeatherAdapter
 
 class DetailFragment : Fragment() {
     private lateinit var detailViewModel: DetailViewModel
     private lateinit var binding: FragmentDetailBinding
     private lateinit var adapter: GalleryAdapter
+    private lateinit var weatherAdapter: WeatherAdapter
 
 
     override fun onCreateView(
@@ -39,12 +42,17 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         detailViewModel = ViewModelProvider(requireActivity())[DetailViewModel::class.java]
-
+        weatherAdapter = WeatherAdapter()
         detailViewModel.detailTourist.observe(viewLifecycleOwner){tourist->
             setDetailFragment(tourist)
         }
 
-
+        detailViewModel.weatherAll.observe(viewLifecycleOwner){city->
+            val listItem: List<ListItem> = city[0].list as List<ListItem>
+            weatherAdapter.setData(listItem)
+        }
+        binding.rvWeather.adapter = weatherAdapter
+        binding.rvWeather.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
     }
     @SuppressLint("NotifyDataSetChanged")
     fun setDetailFragment(touristId: WisataResponse){

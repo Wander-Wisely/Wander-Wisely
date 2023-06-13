@@ -39,7 +39,8 @@ class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataView
             itemView.setOnClickListener {
                 val intentDetail = Intent(itemView.context, DetailActivity::class.java)
                 intentDetail.putExtra("id", wisata.id)
-                intentDetail.putExtra("city",wisata.city)
+                intentDetail.putExtra("lat",wisata.latitude)
+                intentDetail.putExtra("lon",wisata.longitude)
                 intentDetail.putExtra("costto", wisata.costTo)
                 intentDetail.putExtra("costfrom", wisata.costFrom)
                 intentDetail.putExtra("tourismfile", imageUrl)

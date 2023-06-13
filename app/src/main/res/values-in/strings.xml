@@ -71,6 +71,9 @@
     <string name="cant_find_place">Tidak Dapat Menemukan Tempat</string>
     <string name="list_of_facilities">list fasilitas</string>
     <string name="cuaca">Cuaca</string>
+    <string name="feels_like">Feels Like %s</string>
+    <string name="suhu">Suhu</string>
+    <string name="weather_type">Tipe Cuaca</string>
     <string name="successfully_added_plan">Berhasil Menambahkan Plan</string>
     <string name="plan_have_been_added">"Plan Sudah Di Tambahkan "</string>
     <string name="successfully_added_favorite">Berhasil Menambahkan Favorite</string>
