@@ -42,7 +42,7 @@ class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataView
                 intentDetail.putExtra("city",wisata.city)
                 intentDetail.putExtra("costto", wisata.costTo)
                 intentDetail.putExtra("costfrom", wisata.costFrom)
-                intentDetail.putExtra("tourismfile", wisata.tourismFiles?.firstOrNull().toString())
+                intentDetail.putExtra("tourismfile", imageUrl)
                 intentDetail.putExtra("name", wisata.name)
                 itemView.context.startActivity(intentDetail)
             }

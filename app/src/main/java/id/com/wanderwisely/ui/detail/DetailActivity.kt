@@ -42,6 +42,8 @@ class DetailActivity : AppCompatActivity() {
 
         val touristId = intent.getIntExtra("id", 0)
         detailViewModel.getDetailTourist(touristId)
+
+        detailViewModel.detailTourist.observe(this){ id ->
             setDetailTourist(id)
             supportActionBar?.title = id.name
         }
