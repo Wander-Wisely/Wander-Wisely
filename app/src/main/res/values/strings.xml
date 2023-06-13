@@ -71,4 +71,10 @@
     <string name="cant_find_place">Cant Find Place</string>
     <string name="list_of_facilities">List Of Facilities</string>
     <string name="cuaca">Weather</string>
+    <string name="successfully_added_plan">Successfully Added Plan</string>
+    <string name="plan_have_been_added">Plan Have Been Added</string>
+    <string name="successfully_added_favorite">Successfully Added To Favorite</string>
+    <string name="successfully_remove_favorite">Successfully Delete To Favorite</string>
+    <string name="see_plan">See Plan</string>
+    <string name="back_to_home">Back To Home</string>
 </resources>
