@@ -18,10 +18,10 @@ data class PlanEntity(
     val city: String?,
 
     @field:ColumnInfo(name = "costFrom")
-    val costFrom: Int?,
+    val costFrom: Int,
 
     @field:ColumnInfo(name = "costTo")
-    val costTo: Int?,
+    val costTo: Int,
 
     @field:ColumnInfo(name = "path")
     val path: String? = null,

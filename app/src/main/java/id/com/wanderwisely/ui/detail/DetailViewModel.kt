@@ -28,7 +28,7 @@ class DetailViewModel(private val wanderWiselyRepository: WanderWiselyRepository
         planWisataDao = wanderWiselyDatabase?.planWisataDao()
         favoriteWisataDao = wanderWiselyDatabase?.favoriteDao()
     }
-    fun addPlan(city: String? = null, costTo: Int?, name: String? = null, id: Int?, tourismFiles: String?, costFrom: Int?){
+    fun addPlan(city: String? = null, costTo: Int, name: String? = null, id: Int?, tourismFiles: String?, costFrom: Int){
         CoroutineScope(Dispatchers.IO).launch {
             val wisata = PlanEntity(
                 id,
