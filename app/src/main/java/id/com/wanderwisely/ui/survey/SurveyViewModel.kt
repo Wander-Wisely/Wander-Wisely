@@ -18,7 +18,6 @@ class SurveyViewModel(
     private val _surveyData = MutableLiveData<SurveyPref>()
     val surveyData: LiveData<SurveyPref> = _surveyData
 
-
     fun submitSurveyData(hobbies: List<String>, types: List<String>, budgetMin: Int, budgetMax: Int) {
         val surveyPref = SurveyPref.getInstance(application.dataStore)
         viewModelScope.launch {

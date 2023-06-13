@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import id.com.wanderwisely.R
+import id.com.wanderwisely.data.model.response.WeatherResponse
 import id.com.wanderwisely.data.model.response.WisataResponse
 import id.com.wanderwisely.databinding.ActivityDetailBinding
 import id.com.wanderwisely.ui.home.HomeActivity
@@ -41,10 +42,12 @@ class DetailActivity : AppCompatActivity() {
 
         val touristId = intent.getIntExtra("id", 0)
         detailViewModel.getDetailTourist(touristId)
-
-        detailViewModel.detailTourist.observe(this) { id ->
             setDetailTourist(id)
             supportActionBar?.title = id.name
+        }
+
+        detailViewModel.weatherAll.observe(this){city->
+            setWeather(city)
         }
 
         //section adapter
@@ -114,6 +117,9 @@ class DetailActivity : AppCompatActivity() {
                 .load(imgFiles.path)
                 .into(binding.imageView)
         }
+    }
+
+    private fun setWeather(data: WeatherResponse){
 
     }
 

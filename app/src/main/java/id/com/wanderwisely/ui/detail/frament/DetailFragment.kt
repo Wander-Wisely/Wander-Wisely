@@ -1,5 +1,6 @@
 package id.com.wanderwisely.ui.detail.frament
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +21,7 @@ import id.com.wanderwisely.databinding.FragmentDetailBinding
 import id.com.wanderwisely.ui.detail.DetailViewModel
 import id.com.wanderwisely.ui.home.adapter.GalleryAdapter
 
-class DetailFragment() : Fragment() {
+class DetailFragment : Fragment() {
     private lateinit var detailViewModel: DetailViewModel
     private lateinit var binding: FragmentDetailBinding
     private lateinit var adapter: GalleryAdapter
@@ -45,6 +46,7 @@ class DetailFragment() : Fragment() {
 
 
     }
+    @SuppressLint("NotifyDataSetChanged")
     fun setDetailFragment(touristId: WisataResponse){
         val tourismFacilities: List<TourismFacilitiesItem?>? = touristId.tourismFacilities
         val formattedText = tourismFacilities?.joinToString("\n") { facility ->

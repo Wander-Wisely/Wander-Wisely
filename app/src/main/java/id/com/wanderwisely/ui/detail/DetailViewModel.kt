@@ -3,6 +3,7 @@ package id.com.wanderwisely.ui.detail
 import android.app.Application
 import androidx.lifecycle.*
 import id.com.wanderwisely.data.di.Injection
+import id.com.wanderwisely.data.model.response.WeatherResponse
 import id.com.wanderwisely.data.local.WanderWiselyDatabase
 import id.com.wanderwisely.data.local.favorite.entity.FavoriteEntity
 import id.com.wanderwisely.data.local.favorite.room.FavoriteDao
@@ -22,6 +23,9 @@ class DetailViewModel(private val wanderWiselyRepository: WanderWiselyRepository
     private var planWisataDao : PlanWisataDao?
     private var favoriteWisataDao : FavoriteDao?
     private var wanderWiselyDatabase : WanderWiselyDatabase?
+
+    private val _weatherAll = MutableLiveData<WeatherResponse>()
+    val weatherAll: LiveData<WeatherResponse> = _weatherAll
 
     init{
         wanderWiselyDatabase = WanderWiselyDatabase.getDatabase(application)
@@ -63,6 +67,11 @@ class DetailViewModel(private val wanderWiselyRepository: WanderWiselyRepository
     fun getDetailTourist(touristId: Int){
         viewModelScope.launch {
             wanderWiselyRepository.getDetailWisata(application, touristId, _detailTourist)
+        }
+    }
+    fun getWeather(cityName: String){
+        viewModelScope.launch {
+            wanderWiselyRepository.getWeather(application, cityName, _weatherAll)
         }
     }
 
