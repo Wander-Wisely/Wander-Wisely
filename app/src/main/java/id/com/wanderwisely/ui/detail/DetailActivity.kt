@@ -48,7 +48,7 @@ class DetailActivity : AppCompatActivity() {
             detailViewModel.getWeather(lat,lon)
         }
 
-        detailViewModel.detailTourist.observe(this){id ->
+        detailViewModel.detailTourist.observe(this){ id ->
             setDetailTourist(id)
             supportActionBar?.title = id.name
         }
