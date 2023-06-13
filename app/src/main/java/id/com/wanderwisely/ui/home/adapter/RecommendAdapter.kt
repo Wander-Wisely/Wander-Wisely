@@ -26,8 +26,13 @@ class RecommendAdapter : RecyclerView.Adapter<RecommendAdapter.RecommendViewHold
 
             itemView.setOnClickListener {
                 val intentDetail = Intent(itemView.context, DetailActivity::class.java)
-                intentDetail.putExtra("Id", wisata.id)
-                intentDetail.putExtra("city", wisata.city)
+                intentDetail.putExtra("id", wisata.id)
+                intentDetail.putExtra("lat", wisata.latitude)
+                intentDetail.putExtra("lon", wisata.longitude)
+                intentDetail.putExtra("costto", wisata.costTo)
+                intentDetail.putExtra("costfrom", wisata.costFrom)
+                intentDetail.putExtra("tourismfile", wisata.path?.firstOrNull().toString())
+                intentDetail.putExtra("name", wisata.name)
                 itemView.context.startActivity(intentDetail)
             }
         }

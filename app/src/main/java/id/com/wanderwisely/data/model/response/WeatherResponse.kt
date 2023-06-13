@@ -4,105 +4,162 @@ import com.google.gson.annotations.SerializedName
 
 data class WeatherResponse(
 
-	@field:SerializedName("request")
-	val request: Request? = null,
+	@field:SerializedName("city")
+	val city: City? = null,
 
-	@field:SerializedName("current")
-	val current: Current? = null,
+	@field:SerializedName("cnt")
+	val cnt: Int? = null,
 
-	@field:SerializedName("location")
-	val location: Location? = null
+	@field:SerializedName("cod")
+	val cod: String? = null,
+
+	@field:SerializedName("message")
+	val message: Int? = null,
+
+	@field:SerializedName("list")
+	val list: List<ListItem?>? = null
 )
 
-data class Request(
+data class ListItem(
 
-	@field:SerializedName("unit")
-	val unit: String? = null,
+	@field:SerializedName("dt")
+	val dt: Int? = null,
 
-	@field:SerializedName("query")
-	val query: String? = null,
-
-	@field:SerializedName("language")
-	val language: String? = null,
-
-	@field:SerializedName("type")
-	val type: String? = null
-)
-
-data class Current(
-
-	@field:SerializedName("weather_descriptions")
-	val weatherDescriptions: List<String?>? = null,
-
-	@field:SerializedName("observation_time")
-	val observationTime: String? = null,
-
-	@field:SerializedName("wind_degree")
-	val windDegree: Int? = null,
+	@field:SerializedName("pop")
+	val pop: Any? = null,
 
 	@field:SerializedName("visibility")
 	val visibility: Int? = null,
 
-	@field:SerializedName("weather_icons")
-	val weatherIcons: List<String?>? = null,
+	@field:SerializedName("dt_txt")
+	val dtTxt: String? = null,
 
-	@field:SerializedName("feelslike")
-	val feelslike: Int? = null,
+	@field:SerializedName("weather")
+	val weather: List<WeatherItem?>? = null,
 
-	@field:SerializedName("wind_dir")
-	val windDir: String? = null,
+	@field:SerializedName("main")
+	val main: Main? = null,
 
-	@field:SerializedName("pressure")
-	val pressure: Int? = null,
+	@field:SerializedName("clouds")
+	val clouds: Clouds? = null,
 
-	@field:SerializedName("cloudcover")
-	val cloudcover: Int? = null,
+	@field:SerializedName("sys")
+	val sys: Sys? = null,
 
-	@field:SerializedName("precip")
-	val precip: Int? = null,
+	@field:SerializedName("wind")
+	val wind: Wind? = null,
 
-	@field:SerializedName("uv_index")
-	val uvIndex: Int? = null,
-
-	@field:SerializedName("temperature")
-	val temperature: Int? = null,
-
-	@field:SerializedName("humidity")
-	val humidity: Int? = null,
-
-	@field:SerializedName("wind_speed")
-	val windSpeed: Int? = null,
-
-	@field:SerializedName("weather_code")
-	val weatherCode: Int? = null
+	@field:SerializedName("rain")
+	val rain: Rain? = null
 )
 
-data class Location(
+data class Sys(
 
-	@field:SerializedName("localtime")
-	val localtime: String? = null,
+	@field:SerializedName("pod")
+	val pod: String? = null
+)
 
-	@field:SerializedName("utc_offset")
-	val utcOffset: String? = null,
+data class Wind(
+
+	@field:SerializedName("deg")
+	val deg: Int? = null,
+
+	@field:SerializedName("speed")
+	val speed: Any? = null,
+
+	@field:SerializedName("gust")
+	val gust: Any? = null
+)
+
+data class City(
 
 	@field:SerializedName("country")
 	val country: String? = null,
 
-	@field:SerializedName("localtime_epoch")
-	val localtimeEpoch: Int? = null,
+	@field:SerializedName("coord")
+	val coord: Coord? = null,
+
+	@field:SerializedName("sunrise")
+	val sunrise: Int? = null,
+
+	@field:SerializedName("timezone")
+	val timezone: Int? = null,
+
+	@field:SerializedName("sunset")
+	val sunset: Int? = null,
 
 	@field:SerializedName("name")
 	val name: String? = null,
 
-	@field:SerializedName("timezone_id")
-	val timezoneId: String? = null,
+	@field:SerializedName("id")
+	val id: Int? = null,
+
+	@field:SerializedName("population")
+	val population: Int? = null
+)
+
+data class Rain(
+
+	@field:SerializedName("3h")
+	val jsonMember3h: Any? = null
+)
+
+data class WeatherItem(
+
+	@field:SerializedName("icon")
+	val icon: String? = null,
+
+	@field:SerializedName("description")
+	val description: String? = null,
+
+	@field:SerializedName("main")
+	val main: String? = null,
+
+	@field:SerializedName("id")
+	val id: Int? = null
+)
+
+data class Coord(
 
 	@field:SerializedName("lon")
-	val lon: String? = null,
-
-	@field:SerializedName("region")
-	val region: String? = null,
+	val lon: Any? = null,
 
 	@field:SerializedName("lat")
-	val lat: String? = null
+	val lat: Any? = null
+)
+
+data class Main(
+
+	@field:SerializedName("temp")
+	val temp: Double? = null,
+
+	@field:SerializedName("temp_min")
+	val tempMin: Any? = null,
+
+	@field:SerializedName("grnd_level")
+	val grndLevel: Int? = null,
+
+	@field:SerializedName("temp_kf")
+	val tempKf: Any? = null,
+
+	@field:SerializedName("humidity")
+	val humidity: Int? = null,
+
+	@field:SerializedName("pressure")
+	val pressure: Int? = null,
+
+	@field:SerializedName("sea_level")
+	val seaLevel: Int? = null,
+
+	@field:SerializedName("feels_like")
+	val feelsLike: Double? = null,
+
+	@field:SerializedName("temp_max")
+	val tempMax: Any? = null
+)
+
+data class Clouds(
+
+	@field:SerializedName("all")
+	val all: Int? = null
 )

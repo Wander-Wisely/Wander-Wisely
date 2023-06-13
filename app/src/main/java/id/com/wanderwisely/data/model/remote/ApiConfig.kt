@@ -19,12 +19,6 @@ class ApiConfig {
 
         private val client = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
-//            .addInterceptor { chain ->
-//                val request = chain.request().newBuilder()
-//                    .header("Content-Type", "application/json")
-//                    .build()
-//                chain.proceed(request)
-//            }
             .build()
 
         private val retrofit = Retrofit.Builder().apply {

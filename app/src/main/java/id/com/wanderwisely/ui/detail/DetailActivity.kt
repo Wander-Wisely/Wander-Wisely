@@ -1,17 +1,16 @@
 package id.com.wanderwisely.ui.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import id.com.wanderwisely.R
-import id.com.wanderwisely.data.model.response.WeatherResponse
 import id.com.wanderwisely.data.model.response.WisataResponse
 import id.com.wanderwisely.databinding.ActivityDetailBinding
 import id.com.wanderwisely.ui.home.adapter.SectionsPagerAdapter
@@ -35,18 +34,15 @@ class DetailActivity : AppCompatActivity() {
         val touristId = intent.getIntExtra("id", 0)
         detailViewModel.getDetailTourist(touristId)
 
-        val cityName = intent.getStringExtra("city")
-        if (cityName != null) {
-            detailViewModel.getWeather(cityName)
+        val lat = intent.getStringExtra("lat")?.toDouble()
+        val lon = intent.getStringExtra("lon")?.toDouble()
+        if (lat != null && lon != null) {
+            detailViewModel.getWeather(lat,lon)
         }
 
         detailViewModel.detailTourist.observe(this){id ->
             setDetailTourist(id)
             supportActionBar?.title = id.name
-        }
-
-        detailViewModel.weatherAll.observe(this){city->
-            setWeather(city)
         }
 
         //section adapter
@@ -111,10 +107,6 @@ class DetailActivity : AppCompatActivity() {
                 .load(imgFiles.path)
                 .into(binding.imageView)
         }
-    }
-
-    private fun setWeather(data: WeatherResponse){
-
     }
     private fun showLoading(state: Boolean) {
         binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE

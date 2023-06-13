@@ -30,11 +30,12 @@ class SurveyActivity : AppCompatActivity() {
             surveyViewModel.submitSurveyData(selectedHobbies, selectedTypes, budgetMin, budgetMax)
         }
         surveyViewModel.surveyData.observe(this){data->
-            if (data != null){
+            if (data != null && selectedHobbies.isNotEmpty() && selectedTypes.isNotEmpty() && (budgetMin != 0 || budgetMax != 0)) {
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
-            }else{
-                Toast.makeText(this@SurveyActivity,"Fill Survey",Toast.LENGTH_SHORT).show()
+                finish()
+            } else {
+                Toast.makeText(this@SurveyActivity, "Please fill the survey completely", Toast.LENGTH_SHORT).show()
             }
         }
     }

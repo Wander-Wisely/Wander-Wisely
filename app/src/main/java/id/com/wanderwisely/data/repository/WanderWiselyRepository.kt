@@ -45,12 +45,12 @@ class WanderWiselyRepository(
             Toast.makeText(context, "${t.message}",Toast.LENGTH_SHORT).show()
         }
     }
-    suspend fun getWeather(context: Context, cityName: String, weatherALl: MutableLiveData<WeatherResponse>){
+    suspend fun getWeather(context: Context, lat: Double,lon: Double, weatherAll: MutableLiveData<List<WeatherResponse>>){
         try {
-            val response = ApiConfig.getWeatherApiService().getWeather(BuildConfig.API_KEY_WEATHER, cityName)
-            weatherALl.value = response
+            val response = ApiConfig.getWeatherApiService().getWeather(lat,lon, BuildConfig.API_KEY_WEATHER)
+            weatherAll.value = listOf(response)
         }catch (t: Throwable){
-            Toast.makeText(context, "${t.message}",Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "${t.message}",Toast.LENGTH_LONG).show()
         }
     }
     companion object{

@@ -29,7 +29,7 @@ data class DataItem(
 	val descriptions: String? = null,
 
 	@field:SerializedName("cost_to")
-	val costTo: Any? = null,
+	val costTo: Int? = null,
 
 	@field:SerializedName("createdAt")
 	val createdAt: String? = null,
@@ -59,7 +59,7 @@ data class DataItem(
 	val tourismTypeName: String? = null,
 
 	@field:SerializedName("cost_from")
-	val costFrom: Any? = null,
+	val costFrom: Int? = null,
 
 	@field:SerializedName("longitude")
 	val longitude: String? = null,
