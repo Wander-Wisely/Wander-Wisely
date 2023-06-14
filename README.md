@@ -32,4 +32,23 @@ With wanderwisely, you have the power to create personalized travel itineraries 
  - [Glide](https://github.com/bumptech/glide)
  - [Circle Image View](https://github.com/hdodenhof/CircleImageView)
 
+### Usage
+
+
+1.Clone Repository :  
+```shell
+git clone git@github.com:Wander-Wisely/Wander-Wisely.git
+```
+2.Open Android Studio :
+```shell
+Open folder already clone
+```
+3.Run Project :
+```shell
+    Alt + Shift + F10
+```
+4.Or Build App :
+```shell
+    Build >> Build Bundle >> Build APK
+```
 
