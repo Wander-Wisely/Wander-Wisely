@@ -14,6 +14,8 @@ import id.com.wanderwisely.data.model.response.WisataResponse
 import id.com.wanderwisely.databinding.ItemAllTouristBinding
 import id.com.wanderwisely.ui.detail.DetailActivity
 import kotlinx.coroutines.flow.MutableStateFlow
+import java.text.NumberFormat
+import java.util.*
 
 class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataViewHolder>(
     DIFF_CALLBACK
@@ -29,9 +31,15 @@ class WisataAdapter : PagingDataAdapter<WisataResponse, WisataAdapter.WisataView
             val priceText = if (totalPrice == 0) {
                 "Free"
             } else {
-                "Rp. ${(totalPrice / 2)}"
+                (totalPrice / 2).toString()
             }
-            binding.tvPrice.text = priceText
+            val currencyFormat = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
+            val formattedPrice = if (priceText == "Free") {
+                priceText
+            } else {
+                currencyFormat.format(priceText.toBigDecimal())
+            }
+            binding.tvPrice.text = formattedPrice
             val mediaItem = wisata.tourismFiles?.firstOrNull() // Assuming you want to load the first media item
             val imageUrl = mediaItem?.path
             Glide.with(itemView.context)

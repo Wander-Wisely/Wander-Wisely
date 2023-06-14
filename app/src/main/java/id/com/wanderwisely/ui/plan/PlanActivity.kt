@@ -1,5 +1,6 @@
 package id.com.wanderwisely.ui.plan
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,11 +12,16 @@ import id.com.wanderwisely.databinding.ActivityPlanBinding
 import id.com.wanderwisely.ui.favorite.FavoriteActivity
 import id.com.wanderwisely.ui.home.HomeActivity
 import id.com.wanderwisely.ui.home.adapter.PlanAdapter
+import java.text.NumberFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class PlanActivity : AppCompatActivity() {
     private lateinit var binding : ActivityPlanBinding
     private lateinit var planViewModel: PlanViewModel
     private lateinit var adapter : PlanAdapter
+    private var totalCostRata = 0
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPlanBinding.inflate(layoutInflater)
@@ -43,7 +49,7 @@ class PlanActivity : AppCompatActivity() {
                 else -> false
             }
         }
-        planViewModel = ViewModelProvider(this).get(PlanViewModel::class.java)
+        planViewModel = ViewModelProvider(this)[PlanViewModel::class.java]
         adapter = PlanAdapter()
         adapter.notifyDataSetChanged()
         binding.apply {
@@ -55,11 +61,19 @@ class PlanActivity : AppCompatActivity() {
             if (it != null){
                 val list = map(it)
                 adapter.setList(list)
+                calculateAndDisplayTotalCostRata(list)
             }
         }
         adapter.setOnFavoriteClickListener { plan ->
             planViewModel.removePlan(plan.id ?: 0)
         }
+    }
+    private fun calculateAndDisplayTotalCostRata(wisatas: List<PlanEntity>) {
+        totalCostRata = wisatas.sumBy { (it.costFrom + it.costTo) / 2 }
+        val currencyFormat = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
+        val formattedTotalCostRata = currencyFormat.format(totalCostRata)
+
+        binding.textView2.text = formattedTotalCostRata
     }
     private fun map(wisatas : List<PlanEntity>) : ArrayList<PlanEntity>{
         val list = ArrayList<PlanEntity>()

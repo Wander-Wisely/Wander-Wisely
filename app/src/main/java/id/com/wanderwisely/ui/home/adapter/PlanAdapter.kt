@@ -8,6 +8,9 @@ import com.bumptech.glide.Glide
 import id.com.wanderwisely.data.local.plan.entity.PlanEntity
 import id.com.wanderwisely.databinding.ItemPlanBinding
 import id.com.wanderwisely.ui.detail.DetailActivity
+import java.text.NumberFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class PlanAdapter :
     RecyclerView.Adapter<PlanAdapter.PlanViewHolder>() {
@@ -64,9 +67,15 @@ class PlanAdapter :
         val priceText = if (totalPrice == 0) {
             "Free"
         } else {
-            "Rp. ${(totalPrice / 2)}"
+            (totalPrice / 2).toString()
         }
-        holder.binding.tvPrice.text = priceText
+        val currencyFormat = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
+        val formattedPrice = if (priceText == "Free") {
+            priceText
+        } else {
+            currencyFormat.format(priceText.toBigDecimal())
+        }
+        holder.binding.tvPrice.text = formattedPrice
         val imageUrl = wisata[position].path
         Glide.with(holder.itemView.context)
             .load(imageUrl)
